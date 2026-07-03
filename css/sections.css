@@ -108,6 +108,7 @@
   .hero-title {
     font-size: var(--fs-4xl);
   }
+
   .hero-description {
     font-size: var(--fs-base);
   }
@@ -117,6 +118,7 @@
   .hero-title {
     font-size: var(--fs-3xl);
   }
+
   .hero-description {
     font-size: var(--fs-sm);
   }
@@ -895,10 +897,12 @@
 }
 
 .countdown-label {
-  font-size: var(--fs-xs);
-  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  font-weight: var(--fw-bold);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* ========== Timeline ========== */
@@ -1160,6 +1164,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }

@@ -87,9 +87,9 @@
 
   /* Text Colors */
   --text-primary: #ffffff;
-  --text-secondary: #a0a0b0;
-  --text-tertiary: #6a6a7a;
-  --text-muted: #4a4a5a;
+  --text-secondary: #cdd2eb;
+  --text-tertiary: #b0b5d0;
+  --text-muted: #9499b7;
   --text-inverse: #0a0a0f;
 
   /* Border Colors */
@@ -247,9 +247,9 @@
   --bg-overlay: rgba(255, 255, 255, 0.9);
 
   --text-primary: #1a1a2e;
-  --text-secondary: #4a4a68;
-  --text-tertiary: #7a7a98;
-  --text-muted: #a0a0b8;
+  --text-secondary: #3b3b55;
+  --text-tertiary: #5c5c77;
+  --text-muted: #787895;
   --text-inverse: #ffffff;
 
   --border-primary: rgba(0, 0, 0, 0.1);

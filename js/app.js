@@ -200,7 +200,7 @@ const App = {
       const logoPath = isSubDir ? '../assets/logo-stackly.webp' : 'assets/logo-stackly.webp';
 
       sidebarLogo.innerHTML = `
-        <img src="${logoPath}" alt="Stackly Logo" class="sidebar-logo-img" style="height: 32px; width: auto; border-radius: 6px; margin-right: 0; filter: invert(1) hue-rotate(180deg) brightness(1.6);">
+        <img src="${logoPath}" alt="Stackly Logo" class="sidebar-logo-img" style="height: 40px; width: auto; border-radius: 6px; margin-right: 0; filter: brightness(0) saturate(100%) invert(32%) sepia(86%) saturate(2987%) hue-rotate(210deg) brightness(98%) contrast(107%);">
         <span class="sidebar-logo-text" style="font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--fs-lg); color: #00e6e6; letter-spacing: 0.5px;"></span>
       `;
     }
@@ -287,7 +287,7 @@ const App = {
         headerLogo.src = logoPath;
         headerLogo.alt = "Stackly Logo";
         headerLogo.className = "dashboard-header-logo-img";
-        headerLogo.style.cssText = "height: 28px; width: auto; display: none; margin-right: 8px; flex-shrink: 0; border-radius: 4px; cursor: pointer; filter: invert(1) hue-rotate(180deg) brightness(1.6);";
+        headerLogo.style.cssText = "height: 36px; width: auto; display: none; margin-right: 8px; flex-shrink: 0; border-radius: 4px; cursor: pointer; filter: brightness(0) saturate(100%) invert(32%) sepia(86%) saturate(2987%) hue-rotate(210deg) brightness(98%) contrast(107%);";
 
         headerLogo.addEventListener('click', () => {
           window.location.href = 'dashboard.html';
@@ -598,8 +598,8 @@ const App = {
         <div class="loader-grid-pattern" style="position: absolute; inset: 0; background: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px); background-size: 50px 50px; z-index: -1;"></div>
         
         <div class="loader-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-6); text-align: center; z-index: 10;">
-          <div class="loader-logo-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; border: 2px solid rgba(0, 102, 255, 0.4); background: rgba(0, 102, 255, 0.05); box-shadow: 0 0 25px rgba(0, 102, 255, 0.2); animation: loaderPulse 2s infinite ease-in-out;">
-            <img src="${logoPath}" alt="Stackly Logo" style="height: 38px; width: auto; filter: invert(1) hue-rotate(180deg) brightness(1.6); border-radius: 8px;">
+          <div class="loader-logo-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; width: 90px; height: 90px; border-radius: 50%; border: 2px solid rgba(0, 102, 255, 0.4); background: rgba(0, 102, 255, 0.05); box-shadow: 0 0 25px rgba(0, 102, 255, 0.2); animation: loaderPulse 2s infinite ease-in-out;">
+            <img src="${logoPath}" alt="Stackly Logo" style="height: 46px; width: auto; filter: brightness(0) saturate(100%) invert(32%) sepia(86%) saturate(2987%) hue-rotate(210deg) brightness(98%) contrast(107%); border-radius: 8px;">
             <div class="loader-ring" style="position: absolute; inset: -6px; border: 2px solid transparent; border-top-color: var(--secondary-500); border-radius: 50%; animation: spin 1.5s linear infinite;"></div>
           </div>
           
@@ -651,7 +651,7 @@ const App = {
 
       // Prevent page-level scripts from hiding loader immediately
       const originalAdd = loadingScreen.classList.add;
-      loadingScreen.classList.add = function(className) {
+      loadingScreen.classList.add = function (className) {
         if (className === 'hidden') return;
         originalAdd.apply(this, arguments);
       };
@@ -703,7 +703,7 @@ const App = {
       const logoPath = isSubDir ? '../assets/logo-stackly.webp' : 'assets/logo-stackly.webp';
 
       headerLogo.innerHTML = `
-        <img src="${logoPath}" alt="Stackly Logo" class="header-logo-img" style="height: 32px; width: auto; border-radius: 6px; margin-right: 0; filter: invert(1) hue-rotate(180deg) brightness(1.6);">
+        <img src="${logoPath}" alt="Stackly Logo" class="header-logo-img" style="height: 40px; width: auto; border-radius: 6px; margin-right: 0; filter: brightness(0) saturate(100%) invert(32%) sepia(86%) saturate(2987%) hue-rotate(210deg) brightness(98%) contrast(107%);">
       `;
     }
 
@@ -741,7 +741,7 @@ const App = {
       const logoPath = isSubDir ? '../assets/logo-stackly.webp' : 'assets/logo-stackly.webp';
       footerLogo.innerHTML = `
         <a href="${isSubDir ? '../' : ''}index.html" style="display: flex; align-items: center; justify-content: flex-start; gap: 0;">
-          <img src="${logoPath}" alt="Stackly Logo" class="footer-logo-img" style="height: 36px; width: auto; border-radius: 6px; filter: invert(1) hue-rotate(180deg) brightness(1.6);">
+          <img src="${logoPath}" alt="Stackly Logo" class="footer-logo-img" style="height: 44px; width: auto; border-radius: 6px; filter: brightness(0) saturate(100%) invert(32%) sepia(86%) saturate(2987%) hue-rotate(210deg) brightness(98%) contrast(107%);">
         </a>
       `;
     }
@@ -791,23 +791,23 @@ const App = {
           <input type="email" placeholder="Subscribe..." required style="background: transparent; border: none; outline: none; padding: 6px 12px; color: #fff; font-size: var(--fs-xs); width: 100%; box-sizing: border-box;">
           <button type="submit" style="background: var(--gradient-primary); border: none; outline: none; color: #fff; border-radius: var(--radius-md); padding: 6px 14px; font-size: var(--fs-xs); font-weight: var(--fw-bold); cursor: pointer; transition: all 0.2s; white-space: nowrap;">Go</button>
         `;
-        
+
         subscribeForm.addEventListener('submit', (e) => {
           e.preventDefault();
           const btn = subscribeForm.querySelector('button');
           const input = subscribeForm.querySelector('input');
           const originalText = btn.innerText;
-          
+
           btn.innerText = 'Subscribed!';
           btn.style.background = 'var(--gradient-success)';
           input.value = '';
-          
+
           setTimeout(() => {
             btn.innerText = originalText;
             btn.style.background = 'var(--gradient-primary)';
           }, 3000);
         });
-        
+
         contactCol.appendChild(subscribeForm);
       }
     }
@@ -838,7 +838,7 @@ const App = {
     mobileNav.innerHTML = `
       <div class="mobile-nav-header" style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--border-primary);">
         <div style="display: flex; align-items: center; gap: 8px;">
-          <img src="${basePath}assets/logo-stackly.webp" alt="Stackly Logo" style="height: 28px; width: auto; border-radius: 4px; filter: invert(1) hue-rotate(180deg) brightness(1.6);">
+          <img src="${basePath}assets/logo-stackly.webp" alt="Stackly Logo" style="height: 36px; width: auto; border-radius: 4px; filter: brightness(0) saturate(100%) invert(32%) sepia(86%) saturate(2987%) hue-rotate(210deg) brightness(98%) contrast(107%);">
           <span class="mobile-nav-brand" style="font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--fs-lg); color: #00e6e6; letter-spacing: 0.5px;"></span>
         </div>
         <button class="mobile-nav-close-btn" style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 24px; line-height: 1; padding: 4px; display: flex; align-items: center; justify-content: center; outline: none;">&times;</button>

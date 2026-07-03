@@ -37,8 +37,8 @@
 }
 
 .header-logo-icon {
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   background: var(--gradient-primary);
   border-radius: var(--radius-lg);
   display: flex;
@@ -48,14 +48,14 @@
 }
 
 .header-logo-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   color: white;
 }
 
 .header-logo-text {
   font-family: var(--font-display);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-2xl);
   font-weight: var(--fw-bold);
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -1025,6 +1025,7 @@ body.sidebar-open .dashboard-main {
   .sm-row {
     flex-direction: row !important;
   }
+
   .sm-width-auto {
     width: auto !important;
   }
@@ -1034,6 +1035,7 @@ body.sidebar-open .dashboard-main {
   .md-row {
     flex-direction: row !important;
   }
+
   .md-align-center {
     align-items: center !important;
   }
@@ -1043,4 +1045,39 @@ body.sidebar-open .dashboard-main {
   .lg-grid-featured {
     grid-template-columns: 1.2fr 1fr !important;
   }
+}
+
+/* ========== Logo Hover Glow Effect (All Pages) ========== */
+.sidebar-logo-img,
+.auth-logo-img,
+.dashboard-header-logo-img,
+.footer-logo-img,
+.header-logo-icon,
+.header-logo,
+.header-logo-text {
+  transition: transform var(--transition-fast) ease, filter var(--transition-fast) ease, box-shadow var(--transition-fast) ease, text-shadow var(--transition-fast) ease !important;
+}
+
+/* Dashboard & Auth pages WebP logos */
+.sidebar-logo-img:hover,
+.auth-logo-img:hover,
+.dashboard-header-logo-img:hover,
+.footer-logo-img:hover {
+  filter: brightness(0) saturate(100%) invert(32%) sepia(86%) saturate(2987%) hue-rotate(210deg) brightness(98%) contrast(107%) drop-shadow(0 0 10px rgba(0, 102, 255, 0.85)) !important;
+  transform: scale(1.04);
+}
+
+/* Public pages header logo hover */
+.header-logo:hover {
+  transform: scale(1.03);
+  text-decoration: none !important;
+}
+
+.header-logo:hover .header-logo-icon {
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.85), var(--shadow-glow) !important;
+  transform: scale(1.05);
+}
+
+.header-logo:hover .header-logo-text {
+  text-shadow: 0 0 8px rgba(0, 102, 255, 0.4);
 }
