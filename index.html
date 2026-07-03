@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="NexusEvents - Premier Conference & Exhibition Management Platform. Plan, manage, and execute world-class events with cutting-edge technology.">
+  <meta name="keywords" content="conference, exhibition, event management, networking, tickets, registration">
+  <meta name="author" content="NexusEvents">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="NexusEvents - Conference & Exhibition Management Platform">
+  <meta property="og:description" content="Plan, manage, and execute world-class events with cutting-edge technology.">
+  <meta property="og:type" content="website">
+
+  <title>NexusEvents - Conference & Exhibition Management Platform</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230066ff'/%3E%3Cstop offset='100%25' style='stop-color:%2300e6e6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Cpath d='M30 35h40v5H30zm0 12h40v5H30zm0 12h30v5H30z' fill='white'/%3E%3C/svg%3E">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen"></div>
+
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">
+        <div class="header-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+          </svg>
+        </div>
+        <span class="header-logo-text">NexusEvents</span>
+      </a>
+
+      <nav class="header-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="header-nav-link active">Home</a>
+        <div class="header-nav-item">
+          <a href="#" class="header-nav-link">Events</a>
+          <div class="header-dropdown">
+            <a href="conferences.html" class="header-dropdown-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+              </svg>
+              Conferences
+            </a>
+            <a href="exhibitions.html" class="header-dropdown-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+              Exhibitions
+            </a>
+            <a href="speakers.html" class="header-dropdown-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              Speakers
+            </a>
+          </div>
+        </div>
+        <a href="about.html" class="header-nav-link">About</a>
+        <a href="services.html" class="header-nav-link">Services</a>
+        <a href="pricing.html" class="header-nav-link">Pricing</a>
+        <a href="blog.html" class="header-nav-link">Blog</a>
+        <a href="contact.html" class="header-nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+
+        <button class="header-menu-toggle" aria-label="Toggle mobile menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-content">
+      <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="conferences.html" class="mobile-nav-link">Conferences</a>
+      <a href="exhibitions.html" class="mobile-nav-link">Exhibitions</a>
+      <a href="speakers.html" class="mobile-nav-link">Speakers</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="services.html" class="mobile-nav-link">Services</a>
+      <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+      <a href="blog.html" class="mobile-nav-link">Blog</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <div class="mobile-nav-divider"></div>
+      <a href="login.html" class="mobile-nav-link">Login</a>
+      <a href="register.html" class="mobile-nav-link">Register</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-bg-carousel">
+        <div class="hero-bg-slide active" style="background-image: url('assets/pexels_photo_2774556.webp');"></div>
+        <div class="hero-bg-slide" style="background-image: url('assets/pexels_photo_1181396.webp');"></div>
+        <div class="hero-bg-slide" style="background-image: url('assets/pexels_photo_3183183.webp');"></div>
+        <div class="hero-bg-overlay"></div>
+      </div>
+      <div class="hero-particles" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-content">
+
+
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-title-line">Transform Your</span>
+            <span class="hero-title-line"><span class="hero-title-gradient">Events</span> Into</span>
+            <span class="hero-title-line">Extraordinary</span>
+            <span class="hero-title-line"><span class="hero-title-gradient">Experiences</span></span>
+          </h1>
+
+          <p class="hero-description" id="hero-desc">
+            Plan, manage, and execute world-class conferences and exhibitions with our cutting-edge platform. Connect
+            with industry leaders, showcase innovations, and create unforgettable experiences.
+          </p>
+
+          <div class="hero-actions">
+            <a href="conferences.html" class="btn btn-primary btn-lg btn-ripple">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Explore Events
+            </a>
+            <a href="register.html" class="btn btn-outline btn-lg">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <line x1="20" y1="8" x2="20" y2="14"></line>
+                <line x1="23" y1="11" x2="17" y2="11"></line>
+              </svg>
+              Register Now
+            </a>
+          </div>
+
+          <!-- Orbit Animation -->
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-3d-element">
+              <div class="hero-orbit"></div>
+              <div class="hero-orbit"></div>
+              <div class="hero-orbit"></div>
+              <div class="hero-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section"
+      style="padding: var(--space-8) 0; background: rgba(255, 255, 255, 0.015); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-secondary);">
+      <div class="container">
+        <div class="stats-row">
+          <div class="stat-item" data-animate="fade-up">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <div class="stat-value" data-count="500">0</div>
+            <div class="stat-label">Events Hosted</div>
+          </div>
+
+          <div class="stat-item" data-animate="fade-up" data-delay="100">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #00e6e6, #00b3b3);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="stat-value" data-count="50000">0</div>
+            <div class="stat-label">Happy Attendees</div>
+          </div>
+
+          <div class="stat-item" data-animate="fade-up" data-delay="200">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #ff00a0, #cc0080);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+            </div>
+            <div class="stat-value" data-count="50">0</div>
+            <div class="stat-label">Countries Reached</div>
+          </div>
+
+          <div class="stat-item" data-animate="fade-up" data-delay="300">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #00ff7a, #00cc62);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="stat-value" data-count="98">0</div>
+            <div class="stat-label">Satisfaction Rate %</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Conferences Section -->
+    <section class="section" id="conferences">
+      <div class="container">
+        <div class="text-center mb-8" data-animate="fade-up">
+          <span class="badge badge-primary mb-3">Featured Events</span>
+          <h2>Upcoming Conferences</h2>
+          <p class="text-secondary" style="max-width: 600px; margin: 0 auto;">
+            Discover world-class conferences bringing together industry leaders, innovators, and visionaries from around
+            the globe.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="eventsGrid">
+          <!-- Event Card 1 -->
+          <article class="event-card" data-animate="fade-up">
+            <div class="event-card-image">
+              <img src="assets/pexels_photo_8386440.webp" alt="Global Quantum Summit" loading="lazy">
+              <div class="event-card-overlay"></div>
+              <span class="event-card-badge">Quantum</span>
+            </div>
+            <div class="event-card-body">
+              <div class="event-card-meta">
+                <span class="event-card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  Nov 12-14, 2026
+                </span>
+              </div>
+              <h3 class="event-card-title">Global Quantum Summit 2026</h3>
+              <div class="event-card-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Boston, MA
+              </div>
+              <div class="event-card-footer">
+                <span class="event-card-price">$399 <span> onwards</span></span>
+                <a href="conferences.html" class="btn btn-primary btn-sm">Register</a>
+              </div>
+            </div>
+          </article>
+          <!-- Event Card 2 -->
+          <article class="event-card" data-animate="fade-up" data-delay="100">
+            <div class="event-card-image">
+              <img src="assets/pexels_photo_1181406.webp" alt="Future Web & Decentralized Summit" loading="lazy">
+              <div class="event-card-overlay"></div>
+              <span class="event-card-badge">Web3 & AI</span>
+            </div>
+            <div class="event-card-body">
+              <div class="event-card-meta">
+                <span class="event-card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  Dec 15-17, 2026
+                </span>
+              </div>
+              <h3 class="event-card-title">Future Web & Decentralized Summit</h3>
+              <div class="event-card-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                San Francisco, CA
+              </div>
+              <div class="event-card-footer">
+                <span class="event-card-price">$199 <span> onwards</span></span>
+                <a href="conferences.html" class="btn btn-primary btn-sm">Register</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event Card 3 -->
+          <article class="event-card" data-animate="fade-up" data-delay="200">
+            <div class="event-card-image">
+              <img src="assets/pexels_photo_3760067.webp" alt="Cybersecurity Pioneers Conference" loading="lazy">
+              <div class="event-card-overlay"></div>
+              <span class="event-card-badge">Security</span>
+            </div>
+            <div class="event-card-body">
+              <div class="event-card-meta">
+                <span class="event-card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  Jan 18-20, 2027
+                </span>
+              </div>
+              <h3 class="event-card-title">Cybersecurity Pioneers 2027</h3>
+              <div class="event-card-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Tokyo, Japan
+              </div>
+              <div class="event-card-footer">
+                <span class="event-card-price">$299 <span> onwards</span></span>
+                <a href="conferences.html" class="btn btn-primary btn-sm">Register</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center mt-8" data-animate="fade-up">
+          <a href="conferences.html" class="btn btn-outline btn-lg">
+            View All Events
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section"
+      style="background: linear-gradient(180deg, rgba(10, 10, 15, 0) 0%, rgba(33, 22, 60, 0.25) 50%, rgba(10, 10, 15, 0) 100%);">
+      <div class="container">
+        <div class="text-center mb-8" data-animate="fade-up">
+          <span class="badge badge-accent mb-3">Why Choose Us</span>
+          <h2>Powerful Features</h2>
+          <p class="text-secondary" style="max-width: 600px; margin: 0 auto;">
+            Everything you need to plan, manage, and execute exceptional events from start to finish.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card" data-animate="fade-up">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Event Management</h3>
+            <p class="feature-description">Comprehensive tools for planning and managing conferences, exhibitions, and
+              hybrid events with ease.</p>
+          </div>
+
+          <div class="feature-card" data-animate="fade-up" data-delay="100">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #00e6e6, #00b3b3);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Attendee Networking</h3>
+            <p class="feature-description">AI-powered matching and networking features to connect attendees with shared
+              interests.</p>
+          </div>
+
+          <div class="feature-card" data-animate="fade-up" data-delay="200">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #ff00a0, #cc0080);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Virtual & Hybrid</h3>
+            <p class="feature-description">Seamlessly blend in-person and virtual experiences with our streaming
+              platform.</p>
+          </div>
+
+          <div class="feature-card" data-animate="fade-up" data-delay="300">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #00ff7a, #00cc62);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Secure Payments</h3>
+            <p class="feature-description">Multi-currency payment processing with enterprise-grade security and fraud
+              protection.</p>
+          </div>
+
+          <div class="feature-card" data-animate="fade-up" data-delay="400">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #ffb700, #cc9200);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                </path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Exhibition Booths</h3>
+            <p class="feature-description">Interactive virtual booths with live demos, chat, and lead generation tools.
+            </p>
+          </div>
+
+          <div class="feature-card" data-animate="fade-up" data-delay="500">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #ff4d4d, #cc0000);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Real-time Analytics</h3>
+            <p class="feature-description">Comprehensive dashboards providing insights into attendee engagement and
+              performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hybrid Event Tech Showcase Section (New & Unique Content) -->
+    <section class="section" id="tech-showcase"
+      style="background: rgba(10, 10, 15, 0.3); border-top: 1px solid var(--border-primary); border-bottom: 1px solid var(--border-primary);">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div data-animate="fade-up">
+            <span class="badge badge-accent mb-3">Tech Showcase</span>
+            <h2 class="mb-4">The Nexus Experience</h2>
+            <p class="text-secondary mb-6">
+              Experience the cutting-edge technology that makes NexusEvents the premier choice for hosting and attending
+              global conferences. We bridge the gap between physical and digital spaces seamlessly.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <div class="card card-glass p-4" style="display: flex; gap: var(--space-4); align-items: flex-start;">
+                <div class="feature-icon"
+                  style="background: linear-gradient(135deg, #0066ff, #00e6e6); flex-shrink: 0; width: 40px; height: 40px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white;">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                  </svg>
+                </div>
+                <div>
+                  <h4 style="font-weight: var(--fw-semibold); color: var(--text-primary); margin-bottom: 4px;">4K
+                    Simulcast Keynote Halls</h4>
+                  <p class="text-secondary" style="font-size: var(--fs-sm);">Deliver lag-free, ultra-HD broadcast
+                    streams to remote audiences with AI-powered live translations and interactive overlay reactions.</p>
+                </div>
+              </div>
+              <div class="card card-glass p-4" style="display: flex; gap: var(--space-4); align-items: flex-start;">
+                <div class="feature-icon"
+                  style="background: linear-gradient(135deg, #00ff7a, #00cc62); flex-shrink: 0; width: 40px; height: 40px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white;">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 style="font-weight: var(--fw-semibold); color: var(--text-primary); margin-bottom: 4px;">
+                    AI-Powered Networking Pods</h4>
+                  <p class="text-secondary" style="font-size: var(--fs-sm);">Connect attendees automatically based on
+                    industry, role, and shared interests in secure 1-on-1 dynamic speed networking rooms.</p>
+                </div>
+              </div>
+              <div class="card card-glass p-4" style="display: flex; gap: var(--space-4); align-items: flex-start;">
+                <div class="feature-icon"
+                  style="background: linear-gradient(135deg, #ff00a0, #cc0080); flex-shrink: 0; width: 40px; height: 40px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white;">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="3" x2="9" y2="21"></line>
+                  </svg>
+                </div>
+                <div>
+                  <h4 style="font-weight: var(--fw-semibold); color: var(--text-primary); margin-bottom: 4px;">
+                    Interactive Smart Floor Maps</h4>
+                  <p class="text-secondary" style="font-size: var(--fs-sm);">Let physical attendees navigate halls using
+                    localized spatial mapping, while remote visitors interact with digital 3D model booths.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="position: relative; display: flex; justify-content: center;" data-animate="fade-up"
+            data-delay="200">
+            <!-- Simulated Interface Mockup (Aesthetic) -->
+            <div class="glass-panel"
+              style="width: 100%; max-width: 480px; padding: var(--space-6); border: 1px solid var(--border-primary); border-radius: var(--radius-2xl); position: relative; overflow: hidden; box-shadow: var(--shadow-glow);">
+              <div
+                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4); border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-3);">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff4d4d;"></div>
+                  <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffb700;"></div>
+                  <div style="width: 12px; height: 12px; border-radius: 50%; background: #00ff7a;"></div>
+                </div>
+                <div
+                  style="font-size: var(--fs-xs); color: var(--text-muted); background: var(--bg-secondary); padding: 2px 10px; border-radius: var(--radius-full);">
+                  NexusSimulcast v2.4</div>
+              </div>
+              <div
+                style="position: relative; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: var(--space-4);">
+                <img src="assets/pexels_photo_1181396.webp" alt="Platform Demo Video Placeholder"
+                  style="width: 100%; display: block; border-radius: var(--radius-lg);">
+                <div
+                  style="position: absolute; top: var(--space-3); left: var(--space-3); background: rgba(0,0,0,0.6); padding: 4px var(--space-3); border-radius: var(--radius-full); font-size: var(--fs-xs); color: #fff; display: flex; align-items: center; gap: 6px;">
+                  <span
+                    style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #ff3333; animation: pulse 1.5s infinite;"></span>
+                  LIVE BROADCAST
+                </div>
+                <div
+                  style="position: absolute; bottom: var(--space-3); right: var(--space-3); background: rgba(0,0,0,0.6); padding: 4px var(--space-3); border-radius: var(--radius-full); font-size: var(--fs-xs); color: #fff;">
+                  4K UHD
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div
+                  style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-3); display: flex; justify-content: space-between; align-items: center;">
+                  <span
+                    style="font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--text-primary);">Active
+                    Remote Attendees</span>
+                  <span
+                    style="font-size: var(--fs-sm); font-weight: var(--fw-bold); color: var(--primary-400);">14,842</span>
+                </div>
+                <div
+                  style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-3); display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--text-primary);">AI
+                    Networking Match Rate</span>
+                  <span
+                    style="font-size: var(--fs-sm); font-weight: var(--fw-bold); color: var(--success-400);">94.8%</span>
+                </div>
+                <div
+                  style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: var(--space-3); display: flex; justify-content: space-between; align-items: center;">
+                  <span
+                    style="font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--text-primary);">Total
+                    Carbon Offset</span>
+                  <span style="font-size: var(--fs-sm); font-weight: var(--fw-bold); color: var(--accent-400);">12.4
+                    Tons</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="section">
+      <div class="container">
+        <div class="card card-glass p-8"
+          style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 230, 230, 0.1) 100%);">
+          <div class="text-center">
+            <span class="badge badge-accent mb-4">Next Major Event</span>
+            <h3 class="mb-2">Tech Innovation Summit 2026</h3>
+            <p class="text-secondary mb-6">San Francisco, CA - The biggest technology conference of the year</p>
+
+            <div class="countdown" data-countdown="2026-08-15T09:00:00">
+              <div class="countdown-item">
+                <div class="countdown-value" data-days>00</div>
+                <div class="countdown-label">Days</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-value" data-hours>00</div>
+                <div class="countdown-label">Hours</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-value" data-minutes>00</div>
+                <div class="countdown-label">Minutes</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-value" data-seconds>00</div>
+                <div class="countdown-label">Seconds</div>
+              </div>
+            </div>
+
+            <div class="flex justify-center gap-4 mt-6">
+              <a href="conferences.html" class="btn btn-primary">Register Now</a>
+              <a href="conferences.html" class="btn btn-ghost">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Speakers Section -->
+    <section class="section" id="speakers"
+      style="background: linear-gradient(180deg, rgba(10, 10, 15, 0) 0%, rgba(10, 35, 60, 0.25) 50%, rgba(10, 10, 15, 0) 100%);">
+      <div class="container">
+        <div class="text-center mb-8" data-animate="fade-up">
+          <span class="badge badge-success mb-3">Industry Leaders</span>
+          <h2>Featured Speakers</h2>
+          <p class="text-secondary" style="max-width: 600px; margin: 0 auto;">
+            Learn from the best minds in the industry. Our speakers include CEOs, innovators, and thought leaders.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <article class="speaker-card" data-animate="fade-up">
+            <div class="speaker-avatar">
+              <img src="assets/pexels_photo_2182970.webp" alt="Prof. Alan Vance" loading="lazy">
+            </div>
+            <h4 class="speaker-name">Prof. Alan Vance</h4>
+            <p class="speaker-role">Quantum Computing Chair</p>
+            <p class="speaker-company">MIT</p>
+          </article>
+
+          <article class="speaker-card" data-animate="fade-up" data-delay="50">
+            <div class="speaker-avatar">
+              <img src="assets/pexels_photo_220453.webp" alt="Marcus Johnson" loading="lazy">
+            </div>
+            <h4 class="speaker-name">Marcus Johnson</h4>
+            <p class="speaker-role">CEO & Founder</p>
+            <p class="speaker-company">TechVentures</p>
+          </article>
+
+          <article class="speaker-card" data-animate="fade-up" data-delay="100">
+            <div class="speaker-avatar">
+              <img src="assets/pexels_photo_774909.webp" alt="Elena Rodriguez" loading="lazy">
+            </div>
+            <h4 class="speaker-name">Elena Rodriguez</h4>
+            <p class="speaker-role">VP of Engineering</p>
+            <p class="speaker-company">Meta</p>
+          </article>
+
+          <article class="speaker-card" data-animate="fade-up" data-delay="150">
+            <div class="speaker-avatar">
+              <img src="assets/pexels_photo_1181686.webp" alt="James Park" loading="lazy">
+            </div>
+            <h4 class="speaker-name">James Park</h4>
+            <p class="speaker-role">CTO</p>
+            <p class="speaker-company">Stripe</p>
+          </article>
+
+          <article class="speaker-card" data-animate="fade-up" data-delay="200">
+            <div class="speaker-avatar">
+              <img src="assets/pexels_photo_1181519.webp" alt="Priya Patel" loading="lazy">
+            </div>
+            <h4 class="speaker-name">Priya Patel</h4>
+            <p class="speaker-role">Chief Data Officer</p>
+            <p class="speaker-company">Microsoft</p>
+          </article>
+
+          <article class="speaker-card" data-animate="fade-up" data-delay="250">
+            <div class="speaker-avatar">
+              <img src="assets/pexels_photo_1222271.webp" alt="David Kim" loading="lazy">
+            </div>
+            <h4 class="speaker-name">David Kim</h4>
+            <p class="speaker-role">VP Product</p>
+            <p class="speaker-company">Spotify</p>
+          </article>
+
+          <article class="speaker-card" data-animate="fade-up" data-delay="300">
+            <div class="speaker-avatar">
+              <img src="assets/pexels_photo_1239291.webp" alt="Sophie Williams" loading="lazy">
+            </div>
+            <h4 class="speaker-name">Sophie Williams</h4>
+            <p class="speaker-role">Founder & CEO</p>
+            <p class="speaker-company">InnovateAI</p>
+          </article>
+
+          <article class="speaker-card" data-animate="fade-up" data-delay="350">
+            <div class="speaker-avatar">
+              <img src="assets/pexels_photo_3764119.webp" alt="Michael Chang" loading="lazy">
+            </div>
+            <h4 class="speaker-name">Michael Chang</h4>
+            <p class="speaker-role">Director of ML</p>
+            <p class="speaker-company">OpenAI</p>
+          </article>
+        </div>
+
+        <div class="text-center mt-8" data-animate="fade-up">
+          <a href="speakers.html" class="btn btn-outline btn-lg">
+            View All Speakers
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section"
+      style="background: rgba(10, 10, 15, 0.3); border-top: 1px solid var(--border-primary); border-bottom: 1px solid var(--border-primary);">
+      <div class="container">
+        <div class="text-center mb-8" data-animate="fade-up">
+          <span class="badge badge-warning mb-3">Testimonials</span>
+          <h2>What People Say</h2>
+          <p class="text-secondary" style="max-width: 600px; margin: 0 auto;">
+            Hear from our satisfied clients, attendees, and partners about their experience.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="testimonial-card" data-animate="fade-up">
+            <span class="testimonial-quote">"</span>
+            <p class="testimonial-content">NexusEvents transformed our annual conference into an unforgettable
+              experience. The platform's features for networking and engagement were game-changers.</p>
+            <div class="testimonial-author">
+              <img src="assets/pexels_photo_774909.webp" alt="Jennifer Adams" class="testimonial-avatar" loading="lazy">
+              <div class="testimonial-info">
+                <div class="testimonial-name">Jennifer Adams</div>
+                <div class="testimonial-role">Event Director, TechCorp</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-animate="fade-up" data-delay="100">
+            <span class="testimonial-quote">"</span>
+            <p class="testimonial-content">The hybrid event capabilities are exceptional. We reached 3x more attendees
+              than ever before while maintaining meaningful interactions.</p>
+            <div class="testimonial-author">
+              <img src="assets/pexels_photo_220453.webp" alt="Robert Martinez" class="testimonial-avatar"
+                loading="lazy">
+              <div class="testimonial-info">
+                <div class="testimonial-name">Robert Martinez</div>
+                <div class="testimonial-role">CEO, InnovateNow</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-animate="fade-up" data-delay="200">
+            <span class="testimonial-quote">"</span>
+            <p class="testimonial-content">As an exhibitor, the lead generation and analytics tools helped us maximize
+              our ROI. Best investment we've made for trade shows.</p>
+            <div class="testimonial-author">
+              <img src="assets/pexels_photo_2379004.webp" alt="Emily Watson" class="testimonial-avatar" loading="lazy">
+              <div class="testimonial-info">
+                <div class="testimonial-name">Emily Watson</div>
+                <div class="testimonial-role">Marketing VP, DataFlow</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="section" id="sponsors"
+      style="background: rgba(10, 10, 15, 0.3); border-top: 1px solid var(--border-primary); border-bottom: 1px solid var(--border-primary);">
+      <div class="container">
+        <div class="text-center mb-8" data-animate="fade-up">
+          <span class="badge badge-secondary mb-3">Our Partners</span>
+          <h2>Trusted by Global Brands</h2>
+          <p class="text-secondary" style="max-width: 600px; margin: 0 auto;">
+            We're proud to partner with leading organizations and innovative companies worldwide.
+          </p>
+        </div>
+
+        <div class="partners-marquee-container" data-animate="fade-up">
+          <div class="partners-marquee-track">
+            <!-- Group 1 -->
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12.24 10.285V13.4h6.887c-.648 2.41-2.519 4.13-5.136 4.13A5.46 5.46 0 0 1 8.5 12.062a5.46 5.46 0 0 1 5.49-5.47c2.33 0 4.314 1.48 5.093 3.558l3.056-1.272C20.89 5.342 17.72 3 13.99 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c4.76 0 8.71-3.3 9-8h-9.75z" />
+                </svg>
+              </div>
+              <span>Google</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2 2h9v9H2V2zm11 0h9v9h-9V2zM2 13h9v9H2v-9zm11 0h9v9h-9v-9z" />
+                </svg>
+              </div>
+              <span>Microsoft</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
+                </svg>
+              </div>
+              <span>Amazon</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M17.48 8.415c-1.01 0-1.98.504-2.61 1.344-.64-.84-1.61-1.344-2.62-1.344-1.896 0-3.415 1.543-3.415 3.427 0 1.884 1.52 3.428 3.415 3.428 1.01 0 1.98-.504 2.62-1.344.63.84 1.6 1.344 2.61 1.344 1.896 0 3.426-1.544 3.426-3.428 0-1.884-1.53-3.427-3.426-3.427zm0 5.48c-1.137 0-2.053-.925-2.053-2.053s.916-2.053 2.053-2.053c1.136 0 2.052.925 2.052 2.053s-.916 2.053-2.052 2.053zm-9.48 0c-1.137 0-2.053-.925-2.053-2.053s.916-2.053 2.053-2.053c1.137 0 2.053.925 2.053 2.053s-.916 2.053-2.053 2.053z" />
+                </svg>
+              </div>
+              <span>Meta</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-.1 3.81 1.5 1.58 1.63 1.58 4.13 0 5.76-1.58 1.63-1.58 4.13 0 5.76.06.06.12.13.19.19 1.23.03 2 .8 2.6 1.7m-3.41-14.4c.67-.81 1.12-1.93.99-3.05-1 .04-2.22.67-2.94 1.51-.62.71-1.16 1.85-1.02 2.96 1.1.09 2.24-.54 2.97-1.42z" />
+                </svg>
+              </div>
+              <span>Apple</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <path d="M9 17h6M9 7h6M9 12h6"></path>
+                </svg>
+              </div>
+              <span>Tesla</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M5.5 2h4l4.5 10.5V2h4.5v20h-4L10 11.5V22H5.5V2z" />
+                </svg>
+              </div>
+              <span>Netflix</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.894-.98-.336.074-.668-.135-.745-.47-.077-.337.135-.668.47-.746 3.856-.88 7.15-.5 9.822 1.136.295.18.387.563.207.857zm1.226-2.724c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.082-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.678-1.117 8.243-.573 11.35 1.34.368.226.488.706.26 1.074zm.106-2.833C14.384 8.71 8.563 8.52 5.2 9.54c-.51.155-1.045-.138-1.2-.648-.156-.51.138-1.045.648-1.2 3.856-1.17 10.28-.95 14.34 1.46.46.273.61.874.337 1.334-.274.46-.874.61-1.334.337z" />
+                </svg>
+              </div>
+              <span>Spotify</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M13.93 10.086c0-1.026-.823-1.385-2.22-1.385-1.714 0-3.324.71-4.7 1.5L6 7.426c1.693-1.087 3.946-1.754 6.225-1.754 3.738 0 6.046 1.838 6.046 5.163 0 4.186-5.592 5.086-5.592 6.55 0 .58.5.83 1.25.83 1.867 0 3.722-.853 5.122-1.724l1 2.766c-1.616 1.136-4.062 1.942-6.385 1.942-3.882 0-6.363-1.89-6.363-5.263 0-4.322 5.593-5.205 5.593-6.586z" />
+                </svg>
+              </div>
+              <span>Stripe</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523 2.528 2.528 0 0 1 2.522-2.52h2.52v2.52zm1.261 0a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.042a2.528 2.528 0 0 1-2.522 2.52H8.823a2.528 2.528 0 0 1-2.52-2.52v-5.042zM8.823 5.043a2.528 2.528 0 0 1 2.52-2.52 2.528 2.528 0 0 1 2.522 2.52v2.52h-2.522a2.528 2.528 0 0 1-2.52-2.52zm0 1.261a2.528 2.528 0 0 1 2.52 2.52v5.043a2.528 2.528 0 0 1-2.52 2.522H3.78a2.528 2.528 0 0 1-2.52-2.522V8.824a2.528 2.528 0 0 1 2.52-2.52h5.043zm10.135 3.781a2.528 2.528 0 0 1 2.52-2.522 2.528 2.528 0 0 1 2.522 2.522 2.528 2.528 0 0 1-2.522 2.52h-2.52v-2.52zm-1.262 0a2.528 2.528 0 0 1-2.52 2.52h-5.043a2.528 2.528 0 0 1-2.522-2.52V3.78a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.043zm-3.781 10.135a2.528 2.528 0 0 1-2.52 2.52 2.528 2.528 0 0 1-2.522-2.52v-2.522h2.522a2.528 2.528 0 0 1 2.52 2.522zm0-1.262a2.528 2.528 0 0 1-2.52-2.52V8.823a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.043h-5.043z" />
+                </svg>
+              </div>
+              <span>Slack</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 13.5c0 .83-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5v-5c0-.83 0-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5v5zm3-1.5l-2.5 1.88v-5.76L19 12v2z" />
+                </svg>
+              </div>
+              <span>Zoom</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.99 3H21v18h-7.01zM10.01 3H3v18h7.01zm1.99 7.73L16.27 18h-2.53l-1.74-3.66h-1.98z" />
+                </svg>
+              </div>
+              <span>Adobe</span>
+            </div>
+
+            <!-- Group 2 (Duplicate for loop) -->
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12.24 10.285V13.4h6.887c-.648 2.41-2.519 4.13-5.136 4.13A5.46 5.46 0 0 1 8.5 12.062a5.46 5.46 0 0 1 5.49-5.47c2.33 0 4.314 1.48 5.093 3.558l3.056-1.272C20.89 5.342 17.72 3 13.99 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c4.76 0 8.71-3.3 9-8h-9.75z" />
+                </svg>
+              </div>
+              <span>Google</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2 2h9v9H2V2zm11 0h9v9h-9V2zM2 13h9v9H2v-9zm11 0h9v9h-9v-9z" />
+                </svg>
+              </div>
+              <span>Microsoft</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
+                </svg>
+              </div>
+              <span>Amazon</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M17.48 8.415c-1.01 0-1.98.504-2.61 1.344-.64-.84-1.61-1.344-2.62-1.344-1.896 0-3.415 1.543-3.415 3.427 0 1.884 1.52 3.428 3.415 3.428 1.01 0 1.98-.504 2.62-1.344.63.84 1.6 1.344 2.61 1.344 1.896 0 3.426-1.544 3.426-3.428 0-1.884-1.53-3.427-3.426-3.427zm0 5.48c-1.137 0-2.053-.925-2.053-2.053s.916-2.053 2.053-2.053c1.136 0 2.052.925 2.052 2.053s-.916 2.053-2.052 2.053zm-9.48 0c-1.137 0-2.053-.925-2.053-2.053s.916-2.053 2.053-2.053c1.137 0 2.053.925 2.053 2.053s-.916 2.053-2.053 2.053z" />
+                </svg>
+              </div>
+              <span>Meta</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-.1 3.81 1.5 1.58 1.63 1.58 4.13 0 5.76-1.58 1.63-1.58 4.13 0 5.76.06.06.12.13.19.19 1.23.03 2 .8 2.6 1.7m-3.41-14.4c.67-.81 1.12-1.93.99-3.05-1 .04-2.22.67-2.94 1.51-.62.71-1.16 1.85-1.02 2.96 1.1.09 2.24-.54 2.97-1.42z" />
+                </svg>
+              </div>
+              <span>Apple</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <path d="M9 17h6M9 7h6M9 12h6"></path>
+                </svg>
+              </div>
+              <span>Tesla</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M5.5 2h4l4.5 10.5V2h4.5v20h-4L10 11.5V22H5.5V2z" />
+                </svg>
+              </div>
+              <span>Netflix</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.894-.98-.336.074-.668-.135-.745-.47-.077-.337.135-.668.47-.746 3.856-.88 7.15-.5 9.822 1.136.295.18.387.563.207.857zm1.226-2.724c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.082-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.678-1.117 8.243-.573 11.35 1.34.368.226.488.706.26 1.074zm.106-2.833C14.384 8.71 8.563 8.52 5.2 9.54c-.51.155-1.045-.138-1.2-.648-.156-.51.138-1.045.648-1.2 3.856-1.17 10.28-.95 14.34 1.46.46.273.61.874.337 1.334-.274.46-.874.61-1.334.337z" />
+                </svg>
+              </div>
+              <span>Spotify</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M13.93 10.086c0-1.026-.823-1.385-2.22-1.385-1.714 0-3.324.71-4.7 1.5L6 7.426c1.693-1.087 3.946-1.754 6.225-1.754 3.738 0 6.046 1.838 6.046 5.163 0 4.186-5.592 5.086-5.592 6.55 0 .58.5.83 1.25.83 1.867 0 3.722-.853 5.122-1.724l1 2.766c-1.616 1.136-4.062 1.942-6.385 1.942-3.882 0-6.363-1.89-6.363-5.263 0-4.322 5.593-5.205 5.593-6.586z" />
+                </svg>
+              </div>
+              <span>Stripe</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523 2.528 2.528 0 0 1 2.522-2.52h2.52v2.52zm1.261 0a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.042a2.528 2.528 0 0 1-2.522 2.52H8.823a2.528 2.528 0 0 1-2.52-2.52v-5.042zM8.823 5.043a2.528 2.528 0 0 1 2.52-2.52 2.528 2.528 0 0 1 2.522 2.52v2.52h-2.522a2.528 2.528 0 0 1-2.52-2.52zm0 1.261a2.528 2.528 0 0 1 2.52 2.52v5.043a2.528 2.528 0 0 1-2.52 2.522H3.78a2.528 2.528 0 0 1-2.52-2.522V8.824a2.528 2.528 0 0 1 2.52-2.52h5.043zm10.135 3.781a2.528 2.528 0 0 1 2.52-2.522 2.528 2.528 0 0 1 2.522 2.522 2.528 2.528 0 0 1-2.522 2.52h-2.52v-2.52zm-1.262 0a2.528 2.528 0 0 1-2.52 2.52h-5.043a2.528 2.528 0 0 1-2.522-2.52V3.78a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.043zm-3.781 10.135a2.528 2.528 0 0 1-2.52 2.52 2.528 2.528 0 0 1-2.522-2.52v-2.522h2.522a2.528 2.528 0 0 1 2.52 2.522zm0-1.262a2.528 2.528 0 0 1-2.52-2.52V8.823a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.043h-5.043z" />
+                </svg>
+              </div>
+              <span>Slack</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 13.5c0 .83-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5v5zm3-1.5l-2.5 1.88v-5.76L19 12v2z" />
+                </svg>
+              </div>
+              <span>Zoom</span>
+            </div>
+            <div class="partner-logo-card">
+              <div class="partner-logo-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.99 3H21v18h-7.01zM10.01 3H3v18h7.01zm1.99 7.73L16.27 18h-2.53l-1.74-3.66h-1.98z" />
+                </svg>
+              </div>
+              <span>Adobe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8" data-animate="fade-up">
+          <a href="sponsors.html" class="btn btn-ghost">
+            Become a Partner
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- FAQ Section -->
+    <section class="section">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div data-animate="fade-up">
+            <span class="badge badge-accent mb-3">FAQ</span>
+            <h2 class="mb-4">Frequently Asked Questions</h2>
+            <p class="text-secondary mb-6">
+              Have questions? We've got answers. Find everything you need to know about our events and services.
+            </p>
+            <a href="contact.html" class="btn btn-outline">
+              Contact Support
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item" data-animate="fade-up" data-delay="100">
+              <div class="accordion-header">
+                <span>What types of events do you host?</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>We host a wide variety of events including technology conferences, business summits, industry
+                    exhibitions, trade shows, workshops, and hybrid virtual-in-person events. Our platform supports
+                    events of all sizes, from intimate workshops to large-scale conventions.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-animate="fade-up" data-delay="200">
+              <div class="accordion-header">
+                <span>How do I register for an event?</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Registration is simple! Browse our events, select the one you're interested in, choose your ticket
+                    type, and complete the checkout process. You'll receive a confirmation email with your digital
+                    ticket and event details.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-animate="fade-up" data-delay="300">
+              <div class="accordion-header">
+                <span>Can I get a refund if I can't attend?</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Yes, we offer flexible refund policies. Full refunds are available up to 30 days before the event.
+                    Between 7-30 days, you'll receive a 50% refund or credit toward a future event. Refunds are not
+                    available within 7 days, but you can transfer your ticket.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-animate="fade-up" data-delay="400">
+              <div class="accordion-header">
+                <span>Do you offer virtual attendance options?</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Absolutely! Many of our events offer hybrid experiences. Virtual attendees can access live streams
+                    of keynote sessions, participate in Q&A, visit virtual exhibition booths, and network through our
+                    dedicated platform. Virtual tickets are available at a reduced price.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-animate="fade-up" data-delay="500">
+              <div class="accordion-header">
+                <span>How can I become a speaker?</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>We're always looking for passionate speakers! Submit your proposal through our Speaker Application
+                    page. Include your bio, topic idea, previous speaking experience, and why your content would be
+                    valuable to our audience.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section bg-secondary">
+      <div class="container">
+        <div class="card card-glass p-8 text-center" style="max-width: 700px; margin: 0 auto;">
+          <div class="flex justify-center mb-4">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+          </div>
+          <h3 class="mb-2">Stay Updated</h3>
+          <p class="text-secondary mb-6">
+            Subscribe to our newsletter for early access to event announcements, exclusive offers, and industry
+            insights.
+          </p>
+          <form class="flex flex-col sm:flex-row gap-4" style="max-width: 500px; margin: 0 auto;" data-validate>
+            <input type="email" class="form-input flex-1" placeholder="Enter your email address" required>
+            <button type="submit" class="btn btn-primary">
+              Subscribe
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <div class="footer-logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <span class="footer-logo-text">NexusEvents</span>
+            </div>
+            <p class="footer-description">
+              Transform your events into extraordinary experiences. The world's leading conference and exhibition
+              management platform.
+            </p>
+            <div class="footer-social">
+              <a href="404.html" class="footer-social-link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="404.html" class="footer-social-link" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                  </path>
+                </svg>
+              </a>
+              <a href="404.html" class="footer-social-link" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="404.html" class="footer-social-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-column-title">Events</h4>
+            <ul class="footer-links">
+              <li><a href="conferences.html" class="footer-link">Conferences</a></li>
+              <li><a href="exhibitions.html" class="footer-link">Exhibitions</a></li>
+              <li><a href="speakers.html" class="footer-link">Speakers</a></li>
+              <li><a href="gallery.html" class="footer-link">Event Gallery</a></li>
+              <li><a href="venue.html" class="footer-link">Venue</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-column-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="services.html" class="footer-link">Services</a></li>
+              <li><a href="404.html" class="footer-link">Sponsors</a></li>
+              <li><a href="blog.html" class="footer-link">Blog</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-column-title">Support</h4>
+            <ul class="footer-links">
+              <li><a href="404.html" class="footer-link">Help Center</a></li>
+              <li><a href="404.html" class="footer-link">FAQ</a></li>
+              <li><a href="404.html" class="footer-link">Live Chat</a></li>
+              <li><a href="404.html" class="footer-link">Support Ticket</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-column-title">Contact</h4>
+            <div class="footer-contact">
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>123 Event Street, San Francisco, CA</span>
+              </div>
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>info@thestackly.com</span>
+              </div>
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                <span>+1 (555) 123-4567</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-content">
+          <p class="footer-copyright">
+            &copy; 2026 NexusEvents. All rights reserved.
+          </p>
+          <div class="footer-legal-links">
+            <a href="privacy.html" class="footer-legal-link">Privacy Policy</a>
+            <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+            <a href="#" class="footer-legal-link">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Loading Screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loadingScreen')?.classList.add('hidden');
+      }, 800);
+    });
+  </script>
+</body>
+
+</html>

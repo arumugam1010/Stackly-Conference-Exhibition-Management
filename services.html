@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="dark">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Explore event planning, ticketing, hybrid streaming, and marketing services provided by NexusEvents.">
+
+  <title>Services - NexusEvents</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230066ff'/%3E%3Cstop offset='100%25' style='stop-color:%2300e6e6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Cpath d='M30 35h40v5H30zm0 12h40v5H30zm0 12h30v5H30z' fill='white'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+  <div class="loading-screen" id="loadingScreen"></div>
+
+
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+
+
+  <!-- Header -->
+
+  <header class="header" id="header">
+
+    <div class="header-container">
+
+      <a href="index.html" class="header-logo">
+
+        <div class="header-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
+
+        <span class="header-logo-text">NexusEvents</span>
+
+      </a>
+
+      <nav class="header-nav">
+
+        <a href="index.html" class="header-nav-link">Home</a>
+
+        <div class="header-nav-item">
+
+          <a href="#" class="header-nav-link">Events</a>
+
+          <div class="header-dropdown">
+
+            <a href="conferences.html" class="header-dropdown-link">
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line></svg>
+
+              Conferences
+
+            </a>
+
+            <a href="exhibitions.html" class="header-dropdown-link">
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+
+              Exhibitions
+
+            </a>
+
+            <a href="speakers.html" class="header-dropdown-link">
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+
+              Speakers
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <a href="about.html" class="header-nav-link">About</a>
+
+        <a href="services.html" class="header-nav-link active">Services</a>
+
+        <a href="pricing.html" class="header-nav-link">Pricing</a>
+
+        <a href="blog.html" class="header-nav-link">Blog</a>
+
+        <a href="contact.html" class="header-nav-link">Contact</a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+
+        <button class="header-menu-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <nav class="mobile-nav" id="mobileNav">
+
+    <div class="mobile-nav-content">
+
+      <a href="index.html" class="mobile-nav-link">Home</a>
+
+      <a href="conferences.html" class="mobile-nav-link">Conferences</a>
+
+      <a href="exhibitions.html" class="mobile-nav-link">Exhibitions</a>
+
+      <a href="speakers.html" class="mobile-nav-link">Speakers</a>
+
+      <a href="about.html" class="mobile-nav-link">About</a>
+
+      <a href="services.html" class="mobile-nav-link active">Services</a>
+
+      <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+
+      <a href="blog.html" class="mobile-nav-link">Blog</a>
+
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+
+      <div class="mobile-nav-divider"></div>
+
+      <a href="login.html" class="mobile-nav-link">Login</a>
+
+      <a href="register.html" class="mobile-nav-link">Register</a>
+
+    </div>
+
+  </nav>
+
+
+
+  <main id="main-content">
+
+    <!-- Page Header -->
+
+    <section class="page-header">
+
+      <div class="page-header-bg" style="background-image: url('assets/hero_services.webp');"></div>
+
+      <div class="container">
+
+        <h1 class="page-header-title">Our Service Offerings</h1>
+
+                <p class="page-header-description">From initial strategy to live execution and analytics, we offer complete hybrid, virtual, and physical event management solutions.</p>
+
+        <nav class="breadcrumb page-header-breadcrumb">
+
+          <a href="index.html" class="breadcrumb-item">Home</a>
+
+          <span class="breadcrumb-separator">/</span>
+
+          <span class="breadcrumb-item active">Services</span>
+
+        </nav>
+
+        
+
+      </div>
+
+    </section>
+
+
+
+    <!-- Services Grid Section -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Card 1 -->
+
+          <div class="feature-card" data-animate="fade-up">
+
+            <div class="feature-icon" style="background: linear-gradient(135deg, #0066ff, #00e6e6);">
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+
+            </div>
+
+            <h3 class="feature-title">Event Strategy & Consultation</h3>
+
+            <p class="feature-description">Our experts guide you through target modeling, ticket pricing strategies, marketing setups, and vendor coordination blueprints.</p>
+
+          </div>
+
+
+
+          <!-- Card 2 -->
+
+          <div class="feature-card" data-animate="fade-up" data-delay="100">
+
+            <div class="feature-icon" style="background: linear-gradient(135deg, #ff00a0, #cc0080);">
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7a2 2 0 0 0-2.45-1.45L11 8.67 1.45 5.55a2 2 0 0 0-2.45 1.45v10a2 2 0 0 0 1.45 2.45L11 22.57l9.55-3.12a2 2 0 0 0 1.45-2.45z"></path></svg>
+
+            </div>
+
+            <h3 class="feature-title">Hybrid & Virtual Webcasting</h3>
+
+            <p class="feature-description">Ultra-low latency streaming, dual video feeds, virtual green rooms, and live Q&A panel integrations to bridge virtual and live audiences.</p>
+
+          </div>
+
+
+
+          <!-- Card 3 -->
+
+          <div class="feature-card" data-animate="fade-up" data-delay="200">
+
+            <div class="feature-icon" style="background: linear-gradient(135deg, #00ff7a, #00cc62);">
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="16" y1="2" x2="16" y2="4"></line><line x1="8" y1="2" x2="8" y2="4"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+
+            </div>
+
+            <h3 class="feature-title">Dynamic Ticketing & Registration</h3>
+
+            <p class="feature-description">Custom register steps, checkout workflows, discount management, ticket invoices, and digital QR passes sent automatically.</p>
+
+          </div>
+
+
+
+          <!-- Card 4 -->
+
+          <div class="feature-card" data-animate="fade-up">
+
+            <div class="feature-icon" style="background: linear-gradient(135deg, #ffb700, #cc9200);">
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+
+            </div>
+
+            <h3 class="feature-title">Promotion & Email Campaigns</h3>
+
+            <p class="feature-description">Built-in newsletters, campaign templates, target demographic analytics, and SEO optimization tools for event registration boosts.</p>
+
+          </div>
+
+
+
+          <!-- Card 5 -->
+
+          <div class="feature-card" data-animate="fade-up" data-delay="100">
+
+            <div class="feature-icon" style="background: linear-gradient(135deg, #0066ff, #00e6e6);">
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+
+            </div>
+
+            <h3 class="feature-title">On-site Coordinator Support</h3>
+
+            <p class="feature-description">Professional coordination teams for physical halls, hardware checkouts, QR registration desk ops, and AV tech control.</p>
+
+          </div>
+
+
+
+          <!-- Card 6 -->
+
+          <div class="feature-card" data-animate="fade-up" data-delay="200">
+
+            <div class="feature-icon" style="background: linear-gradient(135deg, #ff00a0, #cc0080);">
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+
+            </div>
+
+            <h3 class="feature-title">Analytics & Feedback Insights</h3>
+
+            <p class="feature-description">Heatmaps of crowd activity, sessions attendance data, check-in reports, and digital survey tools for complete insights.</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+        <!-- How We Work Section -->
+
+    <section class="section" style="border-top: 1px solid var(--border-primary);">
+
+      <div class="container">
+
+        <div class="text-center mb-12">
+
+          <span class="badge badge-accent mb-3">Our Process</span>
+
+          <h2>Step-by-Step Delivery</h2>
+
+          <p class="text-secondary max-w-xl mx-auto">From target planning to final day coordination, we stand by you every step of the event roadmap.</p>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+          <div class="feature-card" style="padding: var(--space-6); text-align: center;">
+
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; font-weight: var(--fw-bold); color: white; font-size: var(--fs-xl); margin: 0 auto var(--space-4) auto;">1</div>
+
+            <h4>Consultation</h4>
+
+            <p class="text-secondary" style="font-size: var(--fs-xs); line-height: var(--lh-relaxed);">Defining tickets pricing structures, design guidelines, scheduling layouts, and sponsor placement structures.</p>
+
+          </div>
+
+          <div class="feature-card" style="padding: var(--space-6); text-align: center;">
+
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; font-weight: var(--fw-bold); color: white; font-size: var(--fs-xl); margin: 0 auto var(--space-4) auto;">2</div>
+
+            <h4>Integration</h4>
+
+            <p class="text-secondary" style="font-size: var(--fs-xs); line-height: var(--lh-relaxed);">Setting up staging subdomain portals, checkout gateway forms, speaker dashboards, and digital QR vouchers.</p>
+
+          </div>
+
+          <div class="feature-card" style="padding: var(--space-6); text-align: center;">
+
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; font-weight: var(--fw-bold); color: white; font-size: var(--fs-xl); margin: 0 auto var(--space-4) auto;">3</div>
+
+            <h4>Promotion</h4>
+
+            <p class="text-secondary" style="font-size: var(--fs-xs); line-height: var(--lh-relaxed);">Publishing automated invite campaigns, tracking marketing source channels, and running search-engine optimization boost widgets.</p>
+
+          </div>
+
+          <div class="feature-card" style="padding: var(--space-6); text-align: center;">
+
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; font-weight: var(--fw-bold); color: white; font-size: var(--fs-xl); margin: 0 auto var(--space-4) auto;">4</div>
+
+            <h4>Live Execution</h4>
+
+            <p class="text-secondary" style="font-size: var(--fs-xs); line-height: var(--lh-relaxed);">Activating video encoders, organizing green rooms, managing check-in registration desks, and troubleshooting AV feeds.</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- Statistics Section -->
+    <section class="section bg-secondary" style="border-top: 1px solid var(--border-primary); border-bottom: 1px solid var(--border-primary);">
+      <div class="container">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div data-animate="fade-up">
+            <div style="font-family: var(--font-display); font-size: var(--fs-3xl); font-weight: var(--fw-bold); background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: var(--space-2);">12,000+</div>
+            <h4 style="font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Events Powered</h4>
+          </div>
+          <div data-animate="fade-up" data-delay="100">
+            <div style="font-family: var(--font-display); font-size: var(--fs-3xl); font-weight: var(--fw-bold); background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: var(--space-2);">500k+</div>
+            <h4 style="font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Active Attendees</h4>
+          </div>
+          <div data-animate="fade-up" data-delay="200">
+            <div style="font-family: var(--font-display); font-size: var(--fs-3xl); font-weight: var(--fw-bold); background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: var(--space-2);">99.9%</div>
+            <h4 style="font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Streaming Uptime</h4>
+          </div>
+          <div data-animate="fade-up" data-delay="300">
+            <div style="font-family: var(--font-display); font-size: var(--fs-3xl); font-weight: var(--fw-bold); background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: var(--space-2);">50+</div>
+            <h4 style="font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Countries Hosted</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-12" data-animate="fade-up">
+          <span class="badge badge-success mb-3">Integrations</span>
+          <h2>Connected Ecosystem</h2>
+          <p class="text-secondary max-w-xl mx-auto" style="margin-top: var(--space-3);">NexusEvents syncs seamlessly with the workspace tools and CRMs your business already depends on.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="feature-card" data-animate="fade-up" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="feature-icon" style="background: linear-gradient(135deg, #ff5c35, #ff8c66);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+              </div>
+              <h3 class="feature-title">CRM & Marketing</h3>
+              <p class="feature-description">Automatically sync attendee lists with Salesforce, HubSpot, and Mailchimp to drive sales conversions post-event.</p>
+            </div>
+          </div>
+          <div class="feature-card" data-animate="fade-up" data-delay="100" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="feature-icon" style="background: linear-gradient(135deg, #0066ff, #00e6e6);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+              </div>
+              <h3 class="feature-title">Video Platforms</h3>
+              <p class="feature-description">One-click stream broadcasting straight to Zoom, YouTube Live, and Vimeo for maximum audience distribution channels.</p>
+            </div>
+          </div>
+          <div class="feature-card" data-animate="fade-up" data-delay="200" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="feature-icon" style="background: linear-gradient(135deg, #a855f7, #c084fc);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M12 2v9"></path></svg>
+              </div>
+              <h3 class="feature-title">Workspace Chat</h3>
+              <p class="feature-description">Send registrations, schedule changes, and live check-in alerts directly to your Slack and Microsoft Teams channels.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services FAQ Section -->
+    <section class="section bg-secondary" style="border-top: 1px solid var(--border-primary); border-bottom: 1px solid var(--border-primary);">
+
+      <div class="container" style="max-width: 800px;">
+
+        <div class="text-center mb-8">
+
+          <span class="badge badge-primary mb-3">FAQ</span>
+
+          <h2>Service Guidelines & Questions</h2>
+
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+
+          <details class="glass-panel" style="padding: var(--space-4); cursor: pointer;" open>
+
+            <summary style="font-weight: var(--fw-semibold); font-size: var(--fs-md); color: #fff; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+
+              <span>Can you customize templates to fit our brand guidelines?</span>
+
+              <span style="font-size: var(--fs-xl); color: var(--primary-500); font-weight: var(--fw-bold);">+</span>
+
+            </summary>
+
+            <p class="text-secondary" style="margin-top: var(--space-3); font-size: var(--fs-sm); line-height: var(--lh-relaxed); cursor: default;">Absolutely. Our Pro and Enterprise plan features allow custom logo uploads, personalized email structures, customized ticket formats, and complete white-label staging options.</p>
+
+          </details>
+
+          <details class="glass-panel" style="padding: var(--space-4); cursor: pointer;">
+
+            <summary style="font-weight: var(--fw-semibold); font-size: var(--fs-md); color: #fff; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+
+              <span>What latency standards do you maintain for virtual webcasting?</span>
+
+              <span style="font-size: var(--fs-xl); color: var(--primary-500); font-weight: var(--fw-bold);">+</span>
+
+            </summary>
+
+            <p class="text-secondary" style="margin-top: var(--space-3); font-size: var(--fs-sm); line-height: var(--lh-relaxed); cursor: default;">We utilize low-latency HTTP live streaming channels (HLS/WebRTC), maintaining stream latencies under 2-3 seconds globally, ensuring real-time Q&A feedback is fully interactive.</p>
+
+          </details>
+
+          <details class="glass-panel" style="padding: var(--space-4); cursor: pointer;">
+
+            <summary style="font-weight: var(--fw-semibold); font-size: var(--fs-md); color: #fff; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+
+              <span>Do you provide dedicated physical staff on-site?</span>
+
+              <span style="font-size: var(--fs-xl); color: var(--primary-500); font-weight: var(--fw-bold);">+</span>
+
+            </summary>
+
+            <p class="text-secondary" style="margin-top: var(--space-3); font-size: var(--fs-sm); line-height: var(--lh-relaxed); cursor: default;">Yes, our Enterprise packages include on-site event managers, network coordination specialists, check-in desk AV technicians, and support crews to handle hardware desks and routing desks.</p>
+
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+      <div class="container">
+        <div class="card card-glass text-center p-8" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 230, 230, 0.1));">
+          <h2 class="mb-3">Ready to Transform Your Events?</h2>
+          <p class="text-secondary max-w-lg mx-auto mb-6">Join thousands of organizations using NexusEvents to create unforgettable experiences.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="register.html" class="btn btn-primary btn-lg">Get Started Free</a>
+            <a href="contact.html" class="btn btn-outline btn-lg">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+
+  <!-- Footer -->
+
+  <!-- Footer -->
+
+  <footer class="footer">
+
+    <div class="footer-main">
+
+      <div class="container">
+
+        <div class="footer-grid">
+
+          <div class="footer-brand">
+
+            <div class="footer-logo">
+
+              <div class="footer-logo-icon">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+
+                </svg>
+
+              </div>
+
+              <span class="footer-logo-text">NexusEvents</span>
+
+            </div>
+
+            <p class="footer-description">
+
+              Transform your events into extraordinary experiences. The world's leading conference and exhibition management platform.
+
+            </p>
+
+            <div class="footer-social">
+
+              <a href="404.html" class="footer-social-link" aria-label="Facebook">
+
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+
+                </svg>
+
+              </a>
+
+              <a href="404.html" class="footer-social-link" aria-label="Twitter">
+
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
+                </svg>
+
+              </a>
+
+              <a href="404.html" class="footer-social-link" aria-label="LinkedIn">
+
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+
+                  <rect x="2" y="9" width="4" height="12"></rect>
+
+                  <circle cx="4" cy="4" r="2"></circle>
+
+                </svg>
+
+              </a>
+
+              <a href="404.html" class="footer-social-link" aria-label="Instagram">
+
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+
+                </svg>
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="footer-column">
+
+            <h4 class="footer-column-title">Events</h4>
+
+            <ul class="footer-links">
+
+              <li><a href="conferences.html" class="footer-link">Conferences</a></li>
+
+              <li><a href="exhibitions.html" class="footer-link">Exhibitions</a></li>
+
+              <li><a href="speakers.html" class="footer-link">Speakers</a></li>
+
+              <li><a href="gallery.html" class="footer-link">Event Gallery</a></li>
+
+              <li><a href="venue.html" class="footer-link">Venue</a></li>
+
+            </ul>
+
+          </div>
+
+
+
+          <div class="footer-column">
+
+            <h4 class="footer-column-title">Company</h4>
+
+            <ul class="footer-links">
+
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+
+              <li><a href="services.html" class="footer-link">Services</a></li>
+
+              <li><a href="404.html" class="footer-link">Sponsors</a></li>
+
+              <li><a href="blog.html" class="footer-link">Blog</a></li>
+
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+
+            </ul>
+
+          </div>
+
+
+
+          <div class="footer-column">
+
+            <h4 class="footer-column-title">Support</h4>
+
+            <ul class="footer-links">
+
+              <li><a href="404.html" class="footer-link">Help Center</a></li>
+
+              <li><a href="404.html" class="footer-link">FAQ</a></li>
+
+              <li><a href="404.html" class="footer-link">Live Chat</a></li>
+
+              <li><a href="404.html" class="footer-link">Support Ticket</a></li>
+
+            </ul>
+
+          </div>
+
+
+
+          <div class="footer-column">
+
+            <h4 class="footer-column-title">Contact</h4>
+
+            <div class="footer-contact">
+
+              <div class="footer-contact-item">
+
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+
+                  <circle cx="12" cy="10" r="3"></circle>
+
+                </svg>
+
+                <span>123 Event Street, San Francisco, CA</span>
+
+              </div>
+
+              <div class="footer-contact-item">
+
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+
+                  <polyline points="22,6 12,13 2,6"></polyline>
+
+                </svg>
+
+                <span>info@thestackly.com</span>
+
+              </div>
+
+              <div class="footer-contact-item">
+
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+
+                </svg>
+
+                <span>+1 (555) 123-4567</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <div class="footer-bottom-content">
+
+          <p class="footer-copyright">
+
+            &copy; 2026 NexusEvents. All rights reserved.
+
+          </p>
+
+          <div class="footer-legal-links">
+
+            <a href="privacy.html" class="footer-legal-link">Privacy Policy</a>
+
+            <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+
+            <a href="#" class="footer-legal-link">Cookie Policy</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <button class="scroll-top" aria-label="Scroll to top">
+
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+
+  </button>
+
+
+
+  <script src="js/utils.js"></script>
+
+  <script src="js/app.js"></script>
+
+  <script>
+
+    window.addEventListener('load', () => {
+
+      setTimeout(() => {
+
+        document.getElementById('loadingScreen')?.classList.add('hidden');
+
+      }, 500);
+
+    });
+
+
+
+    // Handle floating label focus effects manually for plain CSS inputs
+
+    const inputs = document.querySelectorAll('.input-animated input, .input-animated textarea');
+
+    inputs.forEach(input => {
+
+      input.addEventListener('focus', () => {
+
+        const label = input.nextElementSibling;
+
+        if (label) {
+
+          label.style.top = '10px';
+
+          label.style.fontSize = 'var(--fs-xs)';
+
+          label.style.color = 'var(--primary-400)';
+
+        }
+
+      });
+
+      input.addEventListener('blur', () => {
+
+        const label = input.nextElementSibling;
+
+        if (label && input.value.trim() === '') {
+
+          label.style.top = input.tagName === 'TEXTAREA' ? '20px' : '50%';
+
+          label.style.fontSize = 'var(--fs-base)';
+
+          label.style.color = 'var(--text-secondary)';
+
+        }
+
+      });
+
+      // Initial state check
+
+      if (input.value.trim() !== '') {
+
+        const label = input.nextElementSibling;
+
+        if (label) {
+
+          label.style.top = '10px';
+
+          label.style.fontSize = 'var(--fs-xs)';
+
+          label.style.color = 'var(--primary-400)';
+
+        }
+
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>
+
