@@ -531,7 +531,7 @@ const App = {
             </div>
             <div class="form-group" style="margin-bottom: var(--space-3);">
               <label class="form-label" style="display: block; margin-bottom: 4px; font-weight: 500; font-size: var(--fs-sm);">Notification Email</label>
-              <input type="email" class="form-input" style="width: 100%;" value="user@nexusevents.com" />
+              <input type="email" class="form-input" style="width: 100%;" value="user@stackly.com" />
             </div>
             <div style="margin-bottom: var(--space-4);">
               <label class="checkbox-animated" style="display: inline-flex; align-items: center; gap: 8px;">
