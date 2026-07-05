@@ -1066,3 +1066,109 @@
 .breadcrumb-separator {
   color: var(--text-muted);
 }
+
+/* ========== Password Visibility Toggle ========== */
+.password-input-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.password-input-wrapper .form-input {
+  padding-right: 44px; /* Space for eye icon */
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-muted) !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast) ease, background-color var(--transition-fast) ease;
+  outline: none;
+  z-index: 2;
+}
+
+.password-toggle-btn:hover {
+  color: var(--primary-400) !important;
+  background-color: rgba(0, 102, 255, 0.08);
+}
+
+.password-toggle-btn svg {
+  display: block;
+}
+
+/* ========== Auth Page Options (Remember me & Forgot password) ========== */
+.auth-options {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  margin-bottom: var(--space-6) !important;
+  gap: var(--space-2) !important;
+}
+
+.auth-options .checkbox-animated {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+.auth-options .checkbox-animated span {
+  white-space: nowrap !important;
+}
+
+.auth-options a {
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Mobile responsive compact sizing for auth options */
+@media (max-width: 480px) {
+  .auth-page .auth-card {
+    padding: 12px !important;
+  }
+
+  .auth-options {
+    gap: 4px !important;
+    margin-bottom: var(--space-4) !important;
+  }
+  
+  .auth-options .checkbox-animated {
+    gap: 4px !important;
+  }
+  
+  .auth-options .checkbox-animated input {
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 3px !important;
+  }
+  
+  /* Centering the smaller checkmark icon */
+  .auth-options .checkbox-animated input:checked::after {
+    top: 1.5px !important;
+    left: 4.5px !important;
+    width: 2.5px !important;
+    height: 5.5px !important;
+    border-width: 0 1.5px 1.5px 0 !important;
+  }
+  
+  .auth-options .checkbox-animated span {
+    font-size: 10px !important;
+  }
+  
+  .auth-options a {
+    font-size: 10px !important;
+  }
+}

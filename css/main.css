@@ -762,13 +762,70 @@ body {
   }
 
   /* Mobile Navigation layout fixes */
+  .mobile-nav {
+    width: 80% !important;
+    max-width: 280px !important;
+  }
+
   .mobile-nav-content {
-    padding: var(--space-2) !important;
+    padding: var(--space-3) !important;
+  }
+
+  .mobile-nav-body {
+    padding: var(--space-3) !important;
+    gap: var(--space-3) !important;
   }
 
   .mobile-nav-link {
-    padding: var(--space-2) !important;
-    font-size: var(--fs-base) !important;
+    padding: var(--space-2) 0 !important;
+    font-size: var(--fs-sm) !important;
+  }
+
+  .mobile-nav-dropdown-menu {
+    padding-left: var(--space-3) !important;
+  }
+
+  .mobile-nav-dropdown-menu .mobile-nav-link {
+    font-size: var(--fs-xs) !important;
+    padding: 6px 0 !important;
+  }
+
+  .mobile-search-box h4,
+  .mobile-contact-info h4 {
+    font-size: var(--fs-xs) !important;
+    margin-bottom: 6px !important;
+  }
+
+  .mobile-search-box input {
+    padding: 8px 32px 8px 10px !important;
+    font-size: var(--fs-xs) !important;
+  }
+
+  .mobile-search-box svg {
+    width: 14px !important;
+    height: 14px !important;
+    right: 10px !important;
+    top: 9px !important;
+  }
+
+  .mobile-contact-info {
+    margin-top: var(--space-2) !important;
+  }
+
+  .mobile-contact-info div {
+    font-size: var(--fs-xs) !important;
+  }
+
+  /* Ultra-small viewport refinements */
+  @media (max-width: 320px) {
+    .mobile-nav {
+      width: 85% !important;
+    }
+
+    .mobile-nav-body,
+    .mobile-nav-content {
+      padding: var(--space-2) !important;
+    }
   }
 
   /* Scroll to top button sizing */
@@ -836,6 +893,13 @@ body {
   .error-actions {
     flex-direction: column !important;
     gap: var(--space-2) !important;
+    width: 100% !important;
+  }
+
+  .error-actions .btn {
+    font-size: 10px !important;
+    padding: 8px var(--space-3) !important;
+    white-space: nowrap !important;
   }
 
   /* Stack buttons inside flex containers vertically on mobile */
@@ -904,19 +968,60 @@ body {
 
   /* Footer contact stacking and wrap fixes */
   .footer-contact-item {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: var(--space-1) !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: var(--space-2) !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
   .footer-contact-item span,
   .footer-contact-item a {
     display: block !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  /* Footer subscribe form responsiveness */
+  .footer-subscribe-form {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--space-2) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
     width: 100% !important;
     max-width: 100% !important;
-    word-break: break-all !important;
-    white-space: normal !important;
+    margin-top: var(--space-4) !important;
+  }
+
+  .footer-subscribe-form input {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-primary) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-3) var(--space-4) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    color: #fff !important;
+    font-size: var(--fs-xs) !important;
+  }
+
+  .footer-subscribe-form button {
+    width: 100% !important;
+    padding: var(--space-3) !important;
+    border-radius: var(--radius-lg) !important;
+    background: var(--gradient-primary) !important;
+    color: #fff !important;
+    font-weight: var(--fw-bold) !important;
+    font-size: var(--fs-xs) !important;
+    justify-content: center !important;
   }
 
   /* Prevent word cutoffs */
@@ -934,10 +1039,25 @@ body {
 
   /* Footer logo and brand adjustments */
   .footer-logo {
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     gap: var(--space-2) !important;
+    width: 100% !important;
+  }
+
+  .footer-logo a {
+    display: inline-flex !important;
+    max-width: 100% !important;
+  }
+
+  .footer-logo-img,
+  .header-logo-img,
+  .auth-logo-img,
+  .sidebar-logo-img,
+  .dashboard-header-logo-img {
+    max-width: 100% !important;
+    height: auto !important;
   }
 
   .footer-logo-text {
@@ -945,13 +1065,18 @@ body {
   }
 
   .footer-description {
-    text-align: center !important;
+    text-align: left !important;
     font-size: var(--fs-xs) !important;
+    width: 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
   }
 
   .footer-social {
-    justify-content: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
     gap: var(--space-2) !important;
+    width: 100% !important;
   }
 
   .footer-social-link {

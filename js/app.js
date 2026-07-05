@@ -92,8 +92,12 @@ const App = {
       // Skip sidebar toggles, mobile triggers, or scroll top buttons
       if (button.classList.contains('sidebar-toggle') ||
         button.classList.contains('header-menu-toggle') ||
+        button.classList.contains('mobile-nav-close-btn') ||
+        button.classList.contains('mobile-nav-dropdown-toggle') ||
         button.classList.contains('scroll-top') ||
-        button.closest('.sidebar')) {
+        button.closest('.sidebar') ||
+        button.closest('.mobile-nav') ||
+        button.closest('.footer-subscribe-form')) {
         return;
       }
 
@@ -788,8 +792,8 @@ const App = {
         subscribeForm.className = 'footer-subscribe-form';
         subscribeForm.style.cssText = "display: flex; align-items: center; background: rgba(255,255,255,0.03); border: 1.5px solid var(--primary-500); border-radius: var(--radius-lg); padding: 4px; width: 100%; max-width: 260px; box-shadow: 0 0 8px rgba(0, 102, 255, 0.15); box-sizing: border-box; margin-top: var(--space-5);";
         subscribeForm.innerHTML = `
-          <input type="email" placeholder="Subscribe..." required style="background: transparent; border: none; outline: none; padding: 6px 12px; color: #fff; font-size: var(--fs-xs); width: 100%; box-sizing: border-box;">
-          <button type="submit" style="background: var(--gradient-primary); border: none; outline: none; color: #fff; border-radius: var(--radius-md); padding: 6px 14px; font-size: var(--fs-xs); font-weight: var(--fw-bold); cursor: pointer; transition: all 0.2s; white-space: nowrap;">Go</button>
+          <input type="email" placeholder="Subscribe..." required style="background: transparent; border: none; outline: none; padding: 6px 12px; color: #fff; font-size: var(--fs-xs); flex: 1; min-width: 0; box-sizing: border-box;">
+          <button type="submit" style="background: var(--gradient-primary); border: none; outline: none; color: #fff; border-radius: var(--radius-md); padding: 6px 14px; font-size: var(--fs-xs); font-weight: var(--fw-bold); cursor: pointer; transition: all 0.2s; white-space: nowrap; flex-shrink: 0;">Go</button>
         `;
 
         subscribeForm.addEventListener('submit', (e) => {

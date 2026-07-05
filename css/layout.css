@@ -440,6 +440,10 @@
   gap: var(--space-8);
 }
 
+.footer-grid > * {
+  min-width: 0;
+}
+
 @media (min-width: 480px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);

@@ -85,6 +85,10 @@ svg {
   height: auto;
 }
 
+img {
+  pointer-events: none;
+}
+
 /* Forms */
 input,
 button,

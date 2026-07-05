@@ -260,46 +260,22 @@
   <div class="auth-page">
     <div class="auth-bg"></div>
 
-    <div class="auth-illustration">
-      <div class="auth-illustration-content">
-        <div class="auth-3d">
-          <div class="hero-orbit"></div>
-          <div class="hero-orbit"></div>
-          <div class="hero-center">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="40" height="40">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </div>
-        </div>
-        <h2 class="text-3xl font-bold mb-3">Manage Your Events</h2>
-        <p class="text-secondary">Access your personalized dashboard to manage registrations, track events, and connect
-          with attendees.</p>
-      </div>
-    </div>
-
     <div class="auth-panel">
       <div class="auth-form-container">
-        <a href="index.html" class="auth-logo"
-          style="display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: var(--space-6);">
-          <img src="assets/logo-stackly.webp" alt="Stackly Logo" class="auth-logo-img"
-            style="height: 40px; width: auto; border-radius: 6px; filter: brightness(0) saturate(100%) invert(32%) sepia(86%) saturate(2987%) hue-rotate(210deg) brightness(98%) contrast(107%);">
-        </a>
-
         <div class="auth-card">
-          <!-- Step Indicator -->
-          <div class="step-indicator" style="max-width: 140px; margin: 0 auto var(--space-6);">
-            <div class="step active" id="step1">1</div>
-            <div class="step-line"></div>
-            <div class="step" id="step2">2</div>
-          </div>
+          <!-- Logo inside card -->
+          <a href="index.html" class="auth-logo"
+            style="display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: var(--space-6);">
+            <img src="assets/logo-stackly.webp" alt="Stackly Logo" class="auth-logo-img"
+              style="height: 40px; width: auto; border-radius: 6px; filter: brightness(0) saturate(100%) invert(32%) sepia(86%) saturate(2987%) hue-rotate(210deg) brightness(98%) contrast(107%);">
+          </a>
 
           <h1 class="auth-title">Create Account</h1>
           <p class="auth-subtitle">Join thousands of event professionals worldwide.</p>
 
           <!-- Step 1: Account Details & Role Selection -->
           <div id="stepOne">
-            <form data-validate onsubmit="return nextStep(2)">
+            <form data-validate novalidate onsubmit="event.preventDefault(); completeRegistration();">
               <div class="form-group mb-5">
                 <label class="form-label mb-3">I want to join as:</label>
                 <div class="role-selection">
@@ -350,11 +326,15 @@
               <div class="grid md:grid-cols-2 gap-4">
                 <div class="form-group">
                   <label class="form-label" for="firstName">First Name</label>
-                  <input type="text" id="firstName" class="form-input" placeholder="John" required>
+                  <input type="text" id="firstName" class="form-input" placeholder="John" required pattern="[A-Za-z\s]+"
+                    title="First name must only contain letters and spaces"
+                    oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')">
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="lastName">Last Name</label>
-                  <input type="text" id="lastName" class="form-input" placeholder="Doe" required>
+                  <input type="text" id="lastName" class="form-input" placeholder="Doe" required pattern="[A-Za-z\s]+"
+                    title="Last name must only contain letters and spaces"
+                    oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')">
                 </div>
               </div>
 
@@ -365,8 +345,17 @@
 
               <div class="form-group">
                 <label class="form-label" for="password">Password</label>
-                <input type="password" id="password" class="form-input" placeholder="Create a password" required
-                  minlength="8" oninput="checkPasswordStrength(this.value)">
+                <div class="password-input-wrapper">
+                  <input type="password" id="password" class="form-input" placeholder="Create a password" required
+                    minlength="8" oninput="checkPasswordStrength(this.value)">
+                  <button type="button" class="password-toggle-btn" onclick="togglePassword('password', this)"
+                    aria-label="Toggle Password Visibility">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                </div>
                 <div class="password-strength">
                   <div class="strength-bar" id="str1"></div>
                   <div class="strength-bar" id="str2"></div>
@@ -378,64 +367,31 @@
 
               <div class="form-group">
                 <label class="form-label" for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password"
-                  required data-match="password">
+                <div class="password-input-wrapper">
+                  <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password"
+                    required data-match="password">
+                  <button type="button" class="password-toggle-btn" onclick="togglePassword('confirmPassword', this)"
+                    aria-label="Toggle Password Visibility">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div id="registerError"
+                style="display: none; color: #ff4d4d; font-size: var(--fs-sm); margin-top: var(--space-4); margin-bottom: var(--space-4); background: rgba(255, 77, 77, 0.1); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid rgba(255, 77, 77, 0.2); line-height: 1.4;">
               </div>
 
               <button type="submit" class="btn btn-primary w-full btn-lg mt-6">
-                Continue
+                Create Account
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </button>
             </form>
-          </div>
-
-          <!-- Step 2: Verification -->
-          <div id="stepTwo" style="display: none;">
-            <div class="text-center mb-6">
-              <div class="feature-icon mx-auto mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold mb-2">Verify Your Email</h3>
-              <p class="text-secondary">We've sent a verification code to <strong id="displayEmail">your email</strong>
-              </p>
-            </div>
-
-            <div class="flex justify-center gap-3 mb-6">
-              <input type="text" maxlength="1" class="form-input text-center text-2xl font-bold"
-                style="width: 50px; height: 60px;" oninput="moveToNext(this, 1)">
-              <input type="text" maxlength="1" class="form-input text-center text-2xl font-bold"
-                style="width: 50px; height: 60px;" oninput="moveToNext(this, 2)">
-              <input type="text" maxlength="1" class="form-input text-center text-2xl font-bold"
-                style="width: 50px; height: 60px;" oninput="moveToNext(this, 3)">
-              <input type="text" maxlength="1" class="form-input text-center text-2xl font-bold"
-                style="width: 50px; height: 60px;" oninput="moveToNext(this, 4)">
-              <input type="text" maxlength="1" class="form-input text-center text-2xl font-bold"
-                style="width: 50px; height: 60px;" oninput="moveToNext(this, 5)">
-              <input type="text" maxlength="1" class="form-input text-center text-2xl font-bold"
-                style="width: 50px; height: 60px;" oninput="moveToNext(this, 6)">
-            </div>
-
-            <p class="text-center text-sm text-muted mb-6">
-              Didn't receive code? <a href="#" style="color: var(--primary-400);">Resend in 60s</a>
-            </p>
-
-            <button onclick="completeRegistration()" class="btn btn-primary w-full btn-lg">
-              Verify & Create Account
-            </button>
-
-            <button onclick="nextStep(1)" class="btn btn-ghost w-full mt-3">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-              </svg>
-              Go Back
-            </button>
           </div>
 
           <div class="text-center mt-6">
@@ -525,6 +481,29 @@
       document.getElementById('strengthText').textContent = 'Password strength: ' + (texts[strength - 1] || 'Weak');
     }
 
+    function togglePassword(inputId, btnEl) {
+      const input = document.getElementById(inputId);
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+      if (btnEl) {
+        if (isPassword) {
+          btnEl.innerHTML = `
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          `;
+        } else {
+          btnEl.innerHTML = `
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          `;
+        }
+      }
+    }
+
     function moveToNext(current, index) {
       const inputs = document.querySelectorAll('#stepThree input');
       if (current.value.length === 1 && index < inputs.length) {
@@ -533,6 +512,101 @@
     }
 
     function completeRegistration() {
+      const firstNameEl = document.getElementById('firstName');
+      const lastNameEl = document.getElementById('lastName');
+      const emailEl = document.getElementById('email');
+      const passwordEl = document.getElementById('password');
+      const confirmPasswordEl = document.getElementById('confirmPassword');
+
+      const firstName = firstNameEl.value;
+      const lastName = lastNameEl.value;
+      const email = emailEl.value;
+      const password = passwordEl.value;
+      const confirmPassword = confirmPasswordEl.value;
+      const errorEl = document.getElementById('registerError');
+
+      // Reset error and border styles
+      errorEl.style.display = 'none';
+      errorEl.textContent = '';
+      firstNameEl.style.borderColor = '';
+      lastNameEl.style.borderColor = '';
+      emailEl.style.borderColor = '';
+      passwordEl.style.borderColor = '';
+      confirmPasswordEl.style.borderColor = '';
+
+      // First & Last Name validation
+      if (!firstName) {
+        errorEl.textContent = 'Please enter your first name.';
+        errorEl.style.display = 'block';
+        firstNameEl.style.borderColor = '#ff3333';
+        firstNameEl.focus();
+        return;
+      }
+      if (!lastName) {
+        errorEl.textContent = 'Please enter your last name.';
+        errorEl.style.display = 'block';
+        lastNameEl.style.borderColor = '#ff3333';
+        lastNameEl.focus();
+        return;
+      }
+
+      // Email validation
+      if (!email) {
+        errorEl.textContent = 'Please enter your email address.';
+        errorEl.style.display = 'block';
+        emailEl.style.borderColor = '#ff3333';
+        emailEl.focus();
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        emailEl.style.borderColor = '#ff3333';
+        emailEl.focus();
+        return;
+      }
+
+      // Password validation
+      if (!password) {
+        errorEl.textContent = 'Please enter a password.';
+        errorEl.style.display = 'block';
+        passwordEl.style.borderColor = '#ff3333';
+        passwordEl.focus();
+        return;
+      }
+
+      const hasLength = password.length >= 8;
+      const hasUppercase = /[A-Z]/.test(password);
+      const hasLowercase = /[a-z]/.test(password);
+      const hasSymbol = /[^A-Za-z0-9]/.test(password);
+
+      if (!hasLength || !hasUppercase || !hasLowercase || !hasSymbol) {
+        errorEl.textContent = 'Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, and a symbol.';
+        errorEl.style.display = 'block';
+        passwordEl.style.borderColor = '#ff3333';
+        passwordEl.focus();
+        return;
+      }
+
+      // Confirm Password match validation
+      if (!confirmPassword) {
+        errorEl.textContent = 'Please confirm your password.';
+        errorEl.style.display = 'block';
+        confirmPasswordEl.style.borderColor = '#ff3333';
+        confirmPasswordEl.focus();
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        errorEl.textContent = 'Passwords do not match.';
+        errorEl.style.display = 'block';
+        confirmPasswordEl.style.borderColor = '#ff3333';
+        confirmPasswordEl.focus();
+        return;
+      }
+
       // Simulate registration - redirect to appropriate dashboard
       window.location.href = selectedRole + '/dashboard.html';
     }
