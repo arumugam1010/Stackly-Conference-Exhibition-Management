@@ -503,6 +503,87 @@
             </div>
           </div>
         </div>
+
+        <!-- New Sections: System Status & Organizer Approval Queue -->
+        <div class="grid lg:grid-cols-2 gap-6 mt-6">
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <h3 class="dashboard-card-title">Organizer Approvals</h3>
+              <span class="badge badge-warning">2 Pending</span>
+            </div>
+            <div class="dashboard-card-body p-0">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Organizer</th>
+                    <th>Company</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="table-user">
+                        <img src="../assets/pexels_photo_220453.webp" alt="Avatar" class="table-user-avatar">
+                        <div class="table-user-info">
+                          <div class="table-user-name">Dr. Alan Vance</div>
+                          <div class="table-user-email">alan@quantum.io</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Quantum Labs Inc.</td>
+                    <td>
+                      <div class="flex gap-2" style="display: flex; gap: 8px;">
+                        <button class="btn btn-primary btn-sm" style="padding: 4px 10px; font-size: 11px;">Approve</button>
+                        <button class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 11px; border-color: rgba(255,255,255,0.15);">Reject</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="table-user">
+                        <img src="../assets/pexels_photo_8386440.webp" alt="Avatar" class="table-user-avatar">
+                        <div class="table-user-info">
+                          <div class="table-user-name">Clara Oswald</div>
+                          <div class="table-user-email">clara@tardis.org</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Tardis Travel Agency</td>
+                    <td>
+                      <div class="flex gap-2" style="display: flex; gap: 8px;">
+                        <button class="btn btn-primary btn-sm" style="padding: 4px 10px; font-size: 11px;">Approve</button>
+                        <button class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 11px; border-color: rgba(255,255,255,0.15);">Reject</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <h3 class="dashboard-card-title">System Health & Live Logs</h3>
+            </div>
+            <div class="dashboard-card-body">
+              <div class="flex flex-col gap-4">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-primary); padding-bottom: 10px;">
+                  <span style="font-size: var(--fs-sm); font-weight: 500;">API Uptime Status</span>
+                  <span class="badge badge-success" style="background: rgba(0, 255, 122, 0.15); color: var(--success-400); font-weight: 600;">99.98% Healthy</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-primary); padding-bottom: 10px;">
+                  <span style="font-size: var(--fs-sm); font-weight: 500;">Current Server Load</span>
+                  <span style="font-size: var(--fs-sm); font-weight: 600; color: #fff;">24% Capacity</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: var(--fs-sm); font-weight: 500;">Email Queue Status</span>
+                  <span style="font-size: var(--fs-sm); font-weight: 600; color: var(--success-400);">0 Emails Delayed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </div>

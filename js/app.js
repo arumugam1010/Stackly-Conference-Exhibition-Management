@@ -395,14 +395,74 @@ const App = {
 
   renderDashboardView(view, container) {
     let html = '';
+    const isSubDir = window.location.pathname.includes('/organizer/') ||
+      window.location.pathname.includes('/attendee/') ||
+      window.location.pathname.includes('/admin/');
+    const basePath = isSubDir ? '../' : '';
 
     if (view === 'Conferences' || view === 'My Events' || view === 'Registered Events') {
       html = `
         <div class="card card-glass p-6">
-          <div class="flex justify-between items-center mb-6" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
-            <h3 style="margin: 0; font-family: var(--font-display);">${view} Overview</h3>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); flex-wrap: wrap; gap: 12px;">
+            <h3 style="margin: 0; font-family: var(--font-display);">${view} Dashboard</h3>
             <button class="btn btn-primary btn-sm">+ Create New</button>
           </div>
+          
+          <!-- Filters & Search -->
+          <div style="display: flex; gap: var(--space-3); margin-bottom: var(--space-6); flex-wrap: wrap; width: 100%;">
+            <input type="text" placeholder="Search events..." style="flex: 1; min-width: 200px; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); color: #fff; outline: none;" />
+            <select style="padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); color: #fff; outline: none;">
+              <option value="all">All Statuses</option>
+              <option value="active">Active</option>
+              <option value="upcoming">Upcoming</option>
+              <option value="planning">Planning</option>
+            </select>
+          </div>
+
+          <!-- Highlight Cards Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
+            <div class="card p-4" style="background: var(--bg-glass); border-radius: var(--radius-xl); display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <img src="${basePath}assets/pexels_photo_2774556.webp" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: var(--space-3);" alt="Main Stage" />
+                <span class="badge badge-primary" style="margin-bottom: 8px;">Upcoming</span>
+                <h4 style="margin: 0 0 4px 0;">Global Quantum Summit 2026</h4>
+                <p style="margin: 0 0 12px 0; font-size: var(--fs-xs); color: var(--text-muted);">Nov 12-14 | Boston, MA</p>
+              </div>
+              <div class="progress" style="height: 6px; margin-bottom: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                <div class="progress-bar" style="width: 75%; height: 100%; background: var(--gradient-primary);"></div>
+              </div>
+              <p style="margin: 0; font-size: 11px; color: var(--text-secondary);">1,240 Registered (75% Goal)</p>
+            </div>
+            
+            <div class="card p-4" style="background: var(--bg-glass); border-radius: var(--radius-xl); display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <img src="${basePath}assets/pexels_photo_1181396.webp" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: var(--space-3);" alt="Developer Workshop" />
+                <span class="badge badge-success" style="margin-bottom: 8px;">Active</span>
+                <h4 style="margin: 0 0 4px 0;">Global AI Exhibition 2026</h4>
+                <p style="margin: 0 0 12px 0; font-size: var(--fs-xs); color: var(--text-muted);">Dec 05-07 | Geneva, Switzerland</p>
+              </div>
+              <div class="progress" style="height: 6px; margin-bottom: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                <div class="progress-bar" style="width: 90%; height: 100%; background: var(--gradient-primary);"></div>
+              </div>
+              <p style="margin: 0; font-size: 11px; color: var(--text-secondary);">850 Exhibiting (90% Goal)</p>
+            </div>
+
+            <div class="card p-4" style="background: var(--bg-glass); border-radius: var(--radius-xl); display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <img src="${basePath}assets/pexels_photo_3183183.webp" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: var(--space-3);" alt="Sponsors Lounge" />
+                <span class="badge badge-secondary" style="margin-bottom: 8px;">Planning</span>
+                <h4 style="margin: 0 0 4px 0;">Cybersecurity Pioneers 2027</h4>
+                <p style="margin: 0 0 12px 0; font-size: var(--fs-xs); color: var(--text-muted);">Jan 18-20 | Tokyo, Japan</p>
+              </div>
+              <div class="progress" style="height: 6px; margin-bottom: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                <div class="progress-bar" style="width: 40%; height: 100%; background: var(--gradient-primary);"></div>
+              </div>
+              <p style="margin: 0; font-size: 11px; color: var(--text-secondary);">2,100 Confirmed (40% Goal)</p>
+            </div>
+          </div>
+
+          <!-- Main Table View -->
+          <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Event Records Table</h4>
           <div style="overflow-x: auto; width: 100%;">
             <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 600px;">
               <thead>
@@ -412,6 +472,7 @@ const App = {
                   <th style="padding: var(--space-3) var(--space-4);">Location</th>
                   <th style="padding: var(--space-3) var(--space-4);">Attendance</th>
                   <th style="padding: var(--space-3) var(--space-4);">Status</th>
+                  <th style="padding: var(--space-3) var(--space-4); text-align: right;">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -421,6 +482,7 @@ const App = {
                   <td style="padding: var(--space-4); color: var(--text-secondary);">Boston, MA</td>
                   <td style="padding: var(--space-4); color: var(--text-secondary);">1,240 Registered</td>
                   <td style="padding: var(--space-4);"><span class="badge badge-primary" style="background: rgba(0, 102, 255, 0.15); color: var(--primary-400); border: 1px solid rgba(0, 102, 255, 0.3);">Upcoming</span></td>
+                  <td style="padding: var(--space-4); text-align: right;"><button class="btn btn-ghost btn-sm" style="color: var(--primary-400);">Manage</button></td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--border-secondary);">
                   <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: var(--text-primary);">Global AI Exhibition 2026</td>
@@ -428,6 +490,7 @@ const App = {
                   <td style="padding: var(--space-4); color: var(--text-secondary);">Geneva, Switzerland</td>
                   <td style="padding: var(--space-4); color: var(--text-secondary);">850 Exhibiting</td>
                   <td style="padding: var(--space-4);"><span class="badge badge-success" style="background: rgba(0, 255, 122, 0.15); color: var(--success-400); border: 1px solid rgba(0, 255, 122, 0.3);">Active</span></td>
+                  <td style="padding: var(--space-4); text-align: right;"><button class="btn btn-ghost btn-sm" style="color: var(--primary-400);">Manage</button></td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--border-secondary);">
                   <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: var(--text-primary);">Cybersecurity Pioneers 2027</td>
@@ -435,6 +498,7 @@ const App = {
                   <td style="padding: var(--space-4); color: var(--text-secondary);">Tokyo, Japan</td>
                   <td style="padding: var(--space-4); color: var(--text-secondary);">2,100 Confirmed</td>
                   <td style="padding: var(--space-4);"><span class="badge badge-secondary" style="background: rgba(160, 160, 184, 0.15); color: var(--text-muted); border: 1px solid rgba(160, 160, 184, 0.3);">Planning</span></td>
+                  <td style="padding: var(--space-4); text-align: right;"><button class="btn btn-ghost btn-sm" style="color: var(--primary-400);">Manage</button></td>
                 </tr>
               </tbody>
             </table>
@@ -444,10 +508,47 @@ const App = {
     } else if (view === 'Exhibitions' || view === 'Booths' || view === 'Exhibitors') {
       html = `
         <div class="card card-glass p-6">
-          <div class="flex justify-between items-center mb-6" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
-            <h3 style="margin: 0; font-family: var(--font-display);">Exhibition Halls & Booth Layout</h3>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+            <h3 style="margin: 0; font-family: var(--font-display);">Exhibitions Floor Dashboard</h3>
             <button class="btn btn-primary btn-sm">+ Assign Booth</button>
           </div>
+
+          <!-- Summary Stats -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 4px 0; color: var(--text-muted); font-size: var(--fs-xs);">Total Booths Available</h5>
+              <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #fff;">150 Booths</div>
+            </div>
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 4px 0; color: var(--text-muted); font-size: var(--fs-xs);">Assigned / Booked</h5>
+              <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #00e6e6;">96 Reserved</div>
+            </div>
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 4px 0; color: var(--text-muted); font-size: var(--fs-xs);">Occupancy Rate</h5>
+              <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #00ff7a;">64% Occupied</div>
+            </div>
+          </div>
+
+          <!-- Booth Interactive Grid Map -->
+          <h4 style="margin: 0 0 var(--space-3) 0; font-family: var(--font-display);">Exhibition Floor Layout Map (Live)</h4>
+          <div style="background: rgba(0,0,0,0.2); padding: var(--space-4); border-radius: var(--radius-lg); margin-bottom: var(--space-6); border: 1px solid var(--border-primary); overflow-x: auto;">
+            <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px; min-width: 600px;">
+              ${Array.from({ length: 20 }, (_, i) => {
+                const colors = ['rgba(0,255,122,0.15)', 'rgba(0,102,255,0.15)', 'rgba(255,0,160,0.15)', 'rgba(255,255,255,0.03)'];
+                const borders = ['rgba(0,255,122,0.4)', 'rgba(0,102,255,0.4)', 'rgba(255,0,160,0.4)', 'var(--border-primary)'];
+                const label = ['VIP', 'Reserved', 'Blocked', 'Empty'];
+                const idx = i % 4;
+                return `
+                  <div style="background: ${colors[idx]}; border: 1px solid ${borders[idx]}; border-radius: 4px; padding: 12px 4px; text-align: center; cursor: pointer;">
+                    <span style="font-size: 10px; font-weight: bold; color: #fff; display: block;">B-${i+101}</span>
+                    <span style="font-size: 7px; color: var(--text-secondary); text-transform: uppercase;">${label[idx]}</span>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+          
+          <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Active Pavilion Tiers</h4>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
             <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl);">
               <span class="badge badge-accent mb-3" style="display: inline-block; background: rgba(255, 0, 160, 0.15); color: var(--accent-400); border: 1px solid rgba(255, 0, 160, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Hall A</span>
@@ -473,39 +574,97 @@ const App = {
     } else if (view === 'Attendees' || view === 'Speakers' || view === 'Sponsors' || view === 'Staff') {
       const items = {
         Attendees: [
-          { name: 'Sarah Jenkins', detail: 'sarah.j@google.com', status: 'Registered' },
-          { name: 'Michael Chang', detail: 'mchang@openai.com', status: 'Checked In' },
-          { name: 'Amara Okafor', detail: 'amara@tech.io', status: 'Registered' }
+          { name: 'Sarah Jenkins', detail: 'sarah.j@google.com', company: 'Google', status: 'Registered' },
+          { name: 'Michael Chang', detail: 'mchang@openai.com', company: 'OpenAI', status: 'Checked In' },
+          { name: 'Amara Okafor', detail: 'amara@tech.io', company: 'Tech.io', status: 'Registered' },
+          { name: 'David Lee', detail: 'david@microsoft.com', company: 'Microsoft', status: 'Checked In' },
+          { name: 'Chloe Vance', detail: 'chloe@apple.com', company: 'Apple', status: 'Registered' }
         ],
         Speakers: [
-          { name: 'Dr. Sarah Chen', detail: 'Google DeepMind', status: 'Confirmed' },
-          { name: 'Marcus Johnson', detail: 'TechVentures CEO', status: 'Confirmed' },
-          { name: 'Prof. Alan Vance', detail: 'MIT Quantum Lab', status: 'Pending' }
+          { name: 'Dr. Sarah Chen', detail: 'Google DeepMind', topic: 'Scaling AI Agent Architectures', status: 'Confirmed' },
+          { name: 'Marcus Johnson', detail: 'TechVentures CEO', topic: 'The Future of Venture Capital', status: 'Confirmed' },
+          { name: 'Prof. Alan Vance', detail: 'MIT Quantum Lab', topic: 'Quantum Cryptography in Web3', status: 'Pending' }
         ],
         Sponsors: [
-          { name: 'Google Cloud', detail: 'Main Keynote Sponsor', status: 'Active' },
-          { name: 'Meta Platforms', detail: 'Networking Lounge Sponsor', status: 'Active' },
-          { name: 'Amazon AWS', detail: 'Hackathon Track Sponsor', status: 'Active' }
+          { name: 'Google Cloud', detail: 'Main Keynote Sponsor', tier: 'Platinum', status: 'Active' },
+          { name: 'Meta Platforms', detail: 'Networking Lounge Sponsor', tier: 'Gold', status: 'Active' },
+          { name: 'Amazon AWS', detail: 'Hackathon Track Sponsor', tier: 'Gold', status: 'Active' },
+          { name: 'Microsoft Azure', detail: 'Badge & Lanyard Sponsor', tier: 'Silver', status: 'Active' }
         ],
         Staff: [
-          { name: 'Elena Rostova', detail: 'Event Director', status: 'On Site' },
-          { name: 'Sophia Martinez', detail: 'Operations Lead', status: 'On Site' },
-          { name: 'David Chen', detail: 'Finance Director', status: 'Remote' }
+          { name: 'Elena Rostova', detail: 'Event Director', hall: 'Hall A Roster', status: 'On Site' },
+          { name: 'Sophia Martinez', detail: 'Operations Lead', hall: 'Hall B Roster', status: 'On Site' },
+          { name: 'David Chen', detail: 'Finance Director', hall: 'Main Desk', status: 'Remote' }
         ]
       };
       const list = items[view] || [];
+      
+      let viewSpecHtml = '';
+      if (view === 'Attendees') {
+        viewSpecHtml = `
+          <!-- Summary Cards -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 4px 0; color: var(--text-muted); font-size: var(--fs-xs);">VIP Attendees</h5>
+              <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #ff00a0;">450 Registered</div>
+            </div>
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 4px 0; color: var(--text-muted); font-size: var(--fs-xs);">Standard Attendees</h5>
+              <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #00e6e6;">1,820 Registered</div>
+            </div>
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 4px 0; color: var(--text-muted); font-size: var(--fs-xs);">Check-in Completion</h5>
+              <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #00ff7a;">92% Checked In</div>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 8px; margin-bottom: var(--space-4); flex-wrap: wrap;">
+            <input type="text" placeholder="Search attendee list..." style="flex: 1; padding: 8px 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-primary); border-radius: var(--radius-md); color: #fff; outline: none; font-size: var(--fs-sm);" />
+            <button class="btn btn-outline btn-sm">Filter</button>
+          </div>
+        `;
+      } else if (view === 'Speakers') {
+        viewSpecHtml = `
+          <!-- Speakers Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+            <div class="card p-4 text-center" style="background: var(--bg-glass); border-radius: var(--radius-xl);">
+              <img src="${basePath}assets/pexels_photo_2379004.webp" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto;" alt="Marcus" />
+              <h4 style="margin: 0 0 4px 0;">Marcus Johnson</h4>
+              <p style="margin: 0 0 10px 0; font-size: 11px; color: var(--text-muted);">CEO, TechVentures</p>
+              <span class="badge badge-success" style="font-size: 9px; padding: 2px 6px;">Keynote Speaker</span>
+            </div>
+            <div class="card p-4 text-center" style="background: var(--bg-glass); border-radius: var(--radius-xl);">
+              <img src="${basePath}assets/pexels_photo_774909.webp" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto;" alt="Sarah" />
+              <h4 style="margin: 0 0 4px 0;">Dr. Sarah Chen</h4>
+              <p style="margin: 0 0 10px 0; font-size: 11px; color: var(--text-muted);">Google DeepMind</p>
+              <span class="badge badge-success" style="font-size: 9px; padding: 2px 6px;">Keynote Speaker</span>
+            </div>
+            <div class="card p-4 text-center" style="background: var(--bg-glass); border-radius: var(--radius-xl);">
+              <img src="${basePath}assets/pexels_photo_1181686.webp" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto;" alt="Sophia" />
+              <h4 style="margin: 0 0 4px 0;">Sophia Martinez</h4>
+              <p style="margin: 0 0 10px 0; font-size: 11px; color: var(--text-muted);">OpenWeb Foundation</p>
+              <span class="badge badge-primary" style="font-size: 9px; padding: 2px 6px;">Panelist</span>
+            </div>
+          </div>
+        `;
+      }
+      
       html = `
         <div class="card card-glass p-6">
           <div class="flex justify-between items-center mb-6" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
-            <h3 style="margin: 0; font-family: var(--font-display);">${view} Directory</h3>
+            <h3 style="margin: 0; font-family: var(--font-display);">${view} Manager</h3>
             <button class="btn btn-primary btn-sm">+ Add ${view.slice(0, -1)}</button>
           </div>
+          
+          ${viewSpecHtml}
+
           <div style="overflow-x: auto; width: 100%;">
             <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 600px;">
               <thead>
                 <tr style="border-bottom: 1px solid var(--border-primary); color: var(--text-muted); font-size: var(--fs-sm);">
                   <th style="padding: var(--space-3) var(--space-4);">Name</th>
                   <th style="padding: var(--space-3) var(--space-4);">Detail / Company</th>
+                  <th style="padding: var(--space-3) var(--space-4);">${view === 'Speakers' ? 'Topic' : (view === 'Sponsors' ? 'Tier' : (view === 'Staff' ? 'Area' : 'Company'))}</th>
                   <th style="padding: var(--space-3) var(--space-4);">Status</th>
                   <th style="padding: var(--space-3) var(--space-4); text-align: right;">Action</th>
                 </tr>
@@ -515,6 +674,7 @@ const App = {
                   <tr style="border-bottom: 1px solid var(--border-secondary);">
                     <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: var(--text-primary);">${item.name}</td>
                     <td style="padding: var(--space-4); color: var(--text-secondary);">${item.detail}</td>
+                    <td style="padding: var(--space-4); color: var(--text-secondary);">${item.company || item.topic || item.tier || item.hall}</td>
                     <td style="padding: var(--space-4);"><span class="badge badge-primary" style="background: rgba(0, 102, 255, 0.15); color: var(--primary-400); border: 1px solid rgba(0, 102, 255, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">${item.status}</span></td>
                     <td style="padding: var(--space-4); text-align: right;"><button class="btn btn-ghost btn-sm" style="color: var(--primary-400);">Edit</button></td>
                   </tr>
@@ -526,40 +686,679 @@ const App = {
       `;
     } else if (view === 'Settings') {
       html = `
-        <div class="card card-glass p-6" style="max-width: 600px; margin: 0 auto;">
-          <h3 class="mb-4" style="margin-bottom: var(--space-4); font-family: var(--font-display);">Settings Configuration</h3>
-          <form style="display: flex; flex-direction: column; gap: var(--space-4);" onsubmit="event.preventDefault(); alert('Settings Saved!');">
-            <div class="form-group" style="margin-bottom: var(--space-3);">
-              <label class="form-label" style="display: block; margin-bottom: 4px; font-weight: 500; font-size: var(--fs-sm);">Display Name</label>
-              <input type="text" class="form-input" style="width: 100%;" value="Demo User" />
+        <div class="card card-glass p-6" style="max-width: 800px; margin: 0 auto;">
+          <h3 class="mb-4" style="margin-bottom: var(--space-4); font-family: var(--font-display);">Settings & Configurations</h3>
+          
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-6);">
+            <div style="border-right: 1px solid var(--border-primary); padding-right: var(--space-4);">
+              <nav style="display: flex; flex-direction: column; gap: var(--space-2);">
+                <a href="#" style="padding: 10px; border-radius: var(--radius-md); background: rgba(0,102,255,0.15); color: #fff; font-weight: 600; text-decoration: none; font-size: var(--fs-sm);">User Profile</a>
+                <a href="#" style="padding: 10px; border-radius: var(--radius-md); color: var(--text-secondary); text-decoration: none; font-size: var(--fs-sm);">Email Notifications</a>
+                <a href="#" style="padding: 10px; border-radius: var(--radius-md); color: var(--text-secondary); text-decoration: none; font-size: var(--fs-sm);">Security & Password</a>
+                <a href="#" style="padding: 10px; border-radius: var(--radius-md); color: var(--text-secondary); text-decoration: none; font-size: var(--fs-sm);">Organization Info</a>
+              </nav>
             </div>
-            <div class="form-group" style="margin-bottom: var(--space-3);">
-              <label class="form-label" style="display: block; margin-bottom: 4px; font-weight: 500; font-size: var(--fs-sm);">Notification Email</label>
-              <input type="email" class="form-input" style="width: 100%;" value="user@stackly.com" />
+            <div>
+              <form style="display: flex; flex-direction: column; gap: var(--space-4);" onsubmit="event.preventDefault(); alert('Settings Saved!');">
+                <div class="form-group" style="margin-bottom: var(--space-3);">
+                  <label class="form-label" style="display: block; margin-bottom: 4px; font-weight: 500; font-size: var(--fs-sm);">Display Name</label>
+                  <input type="text" class="form-input" style="width: 100%;" value="Sarah Jenkins" />
+                </div>
+                <div class="form-group" style="margin-bottom: var(--space-3);">
+                  <label class="form-label" style="display: block; margin-bottom: 4px; font-weight: 500; font-size: var(--fs-sm);">Notification Email</label>
+                  <input type="email" class="form-input" style="width: 100%;" value="sarah.j@google.com" />
+                </div>
+                <div class="form-group" style="margin-bottom: var(--space-3);">
+                  <label class="form-label" style="display: block; margin-bottom: 4px; font-weight: 500; font-size: var(--fs-sm);">Time Zone</label>
+                  <select class="form-input" style="width: 100%; background: var(--bg-secondary); color: #fff; border: 1px solid var(--border-primary); padding: 8px;">
+                    <option>Pacific Standard Time (PST)</option>
+                    <option>Eastern Standard Time (EST)</option>
+                    <option>Greenwich Mean Time (GMT)</option>
+                    <option>Indian Standard Time (IST)</option>
+                  </select>
+                </div>
+                <div style="margin-bottom: var(--space-4);">
+                  <label class="checkbox-animated" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" checked />
+                    <span class="text-sm text-secondary">Enable live browser dashboard popups</span>
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: max-content;">Save Profile</button>
+              </form>
             </div>
-            <div style="margin-bottom: var(--space-4);">
-              <label class="checkbox-animated" style="display: inline-flex; align-items: center; gap: 8px;">
-                <input type="checkbox" checked />
-                <span class="text-sm text-secondary">Enable live browser dashboard popups</span>
-              </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Save Settings</button>
-          </form>
+          </div>
         </div>
       `;
     } else if (view === 'My Tickets' || view === 'Tickets') {
       html = `
         <div class="card card-glass p-6">
-          <h3 class="mb-4" style="font-family: var(--font-display);">Your Access Passes</h3>
-          <div class="dashboard-ticket-card" style="border: 2px dashed var(--border-primary); border-radius: var(--radius-2xl); padding: var(--space-6); background: var(--bg-secondary); position: relative; max-width: 500px; margin: 0 auto;">
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-4); margin-bottom: var(--space-4);">
-              <h4 style="margin: 0; color: var(--primary-400);">Professional Pass</h4>
-              <span style="font-weight: bold; color: var(--text-primary);">$299.00</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+            <h3 style="margin: 0; font-family: var(--font-display);">Your Access Passes</h3>
+            <button class="btn btn-outline btn-sm">PDF Download</button>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
+            <!-- Ticket 1 -->
+            <div class="dashboard-ticket-card" style="border: 2px dashed var(--border-primary); border-radius: var(--radius-2xl); padding: var(--space-5); background: var(--bg-secondary); position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; height: 210px;">
+              <div style="position: absolute; right: -10px; top: -10px; width: 40px; height: 40px; background: rgba(0, 102, 255, 0.1); border-radius: 50%;"></div>
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-3); margin-bottom: var(--space-3);">
+                  <h4 style="margin: 0; color: var(--primary-400); font-weight: bold;">Professional Pass</h4>
+                  <span style="font-weight: bold; color: var(--text-primary);">$299.00</span>
+                </div>
+                <p style="margin: 0 0 var(--space-1); font-weight: 600;">Global Quantum Summit 2026</p>
+                <p style="margin: 0 0 var(--space-3); color: var(--text-muted); font-size: var(--fs-xs);">Attendee: Sarah Jenkins | Code: #QN-9824</p>
+              </div>
+              <div style="background: white; padding: 6px 12px; border-radius: var(--radius-md); display: flex; justify-content: center; width: max-content; margin: 0 auto;">
+                <div style="height: 30px; width: 140px; background: repeating-linear-gradient(90deg, black, black 3px, white 3px, white 6px, black 6px, black 8px, white 8px, white 12px);"></div>
+              </div>
             </div>
-            <p style="margin: 0 0 var(--space-2); font-weight: 600;">Global Quantum Summit 2026</p>
-            <p style="margin: 0 0 var(--space-4); color: var(--text-muted); font-size: var(--fs-sm);">Attendee: Sarah Jenkins | Code: #QN-9824</p>
-            <div style="background: white; padding: var(--space-3); border-radius: var(--radius-md); display: flex; justify-content: center; width: max-content; margin: 0 auto;">
-              <div style="height: 50px; width: 180px; background: repeating-linear-gradient(90deg, black, black 4px, white 4px, white 8px, black 8px, black 10px, white 10px, white 14px);"></div>
+
+            <!-- Ticket 2 -->
+            <div class="dashboard-ticket-card" style="border: 2px dashed var(--border-primary); border-radius: var(--radius-2xl); padding: var(--space-5); background: var(--bg-secondary); position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; height: 210px;">
+              <div style="position: absolute; right: -10px; top: -10px; width: 40px; height: 40px; background: rgba(0, 255, 122, 0.1); border-radius: 50%;"></div>
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-3); margin-bottom: var(--space-3);">
+                  <h4 style="margin: 0; color: var(--success-400); font-weight: bold;">Standard Pass</h4>
+                  <span style="font-weight: bold; color: var(--text-primary);">$149.00</span>
+                </div>
+                <p style="margin: 0 0 var(--space-1); font-weight: 600;">Business Expo 2026</p>
+                <p style="margin: 0 0 var(--space-3); color: var(--text-muted); font-size: var(--fs-xs);">Attendee: Sarah Jenkins | Code: #BE-2026-392</p>
+              </div>
+              <div style="background: white; padding: 6px 12px; border-radius: var(--radius-md); display: flex; justify-content: center; width: max-content; margin: 0 auto;">
+                <div style="height: 30px; width: 140px; background: repeating-linear-gradient(90deg, black, black 3px, white 3px, white 6px, black 6px, black 8px, white 8px, white 12px);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transaction Info -->
+          <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Ticket Order History</h4>
+          <div style="overflow-x: auto; width: 100%;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 500px;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-primary); color: var(--text-muted); font-size: var(--fs-sm);">
+                  <th style="padding: var(--space-3) var(--space-4);">Order ID</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Event</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Billing Date</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Amount</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Payment Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-secondary);">
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">#TN-2026-847</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Tech Innovation Summit</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Jul 02, 2026</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">$299.00</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Visa ending in 4242</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-secondary);">
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">#BE-2026-392</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Business Expo 2026</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Jun 15, 2026</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">$149.00</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Mastercard ending in 9812</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    } else if (view === 'Gallery') {
+      html = `
+        <div class="card card-glass p-6">
+          <div class="flex justify-between items-center mb-6" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); flex-wrap: wrap; gap: 10px;">
+            <h3 style="margin: 0; font-family: var(--font-display);">Event Gallery</h3>
+            <button class="btn btn-primary btn-sm">+ Upload Media</button>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-4);">
+            <div class="card overflow-hidden" style="background: var(--bg-glass); border-radius: var(--radius-lg); padding: 0;">
+              <img src="${basePath}assets/pexels_photo_2774556.webp" style="width: 100%; height: 140px; object-fit: cover;" alt="Main Stage" />
+              <div style="padding: 12px;">
+                <h5 style="margin: 0 0 4px 0; font-size: var(--fs-sm); font-weight: var(--fw-semibold);">Tech Innovation Summit</h5>
+                <p style="margin: 0; font-size: 11px; color: var(--text-muted);">Main stage keynotes</p>
+              </div>
+            </div>
+            <div class="card overflow-hidden" style="background: var(--bg-glass); border-radius: var(--radius-lg); padding: 0;">
+              <img src="${basePath}assets/pexels_photo_1181396.webp" style="width: 100%; height: 140px; object-fit: cover;" alt="Workshop" />
+              <div style="padding: 12px;">
+                <h5 style="margin: 0 0 4px 0; font-size: var(--fs-sm); font-weight: var(--fw-semibold);">Developer Workshop</h5>
+                <p style="margin: 0; font-size: 11px; color: var(--text-muted);">Interactive coding lab</p>
+              </div>
+            </div>
+            <div class="card overflow-hidden" style="background: var(--bg-glass); border-radius: var(--radius-lg); padding: 0;">
+              <img src="${basePath}assets/pexels_photo_3183183.webp" style="width: 100%; height: 140px; object-fit: cover;" alt="Networking" />
+              <div style="padding: 12px;">
+                <h5 style="margin: 0 0 4px 0; font-size: var(--fs-sm); font-weight: var(--fw-semibold);">Sponsors Networking</h5>
+                <p style="margin: 0; font-size: 11px; color: var(--text-muted);">Executive lounge meeting</p>
+              </div>
+            </div>
+            <div class="card overflow-hidden" style="background: var(--bg-glass); border-radius: var(--radius-lg); padding: 0;">
+              <img src="${basePath}assets/pexels_photo_3184183.webp" style="width: 100%; height: 140px; object-fit: cover;" alt="Discussion" />
+              <div style="padding: 12px;">
+                <h5 style="margin: 0 0 4px 0; font-size: var(--fs-sm); font-weight: var(--fw-semibold);">Panel Discussion</h5>
+                <p style="margin: 0; font-size: 11px; color: var(--text-muted);">QA session on future trends</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (view === 'Reports') {
+      html = `
+        <div class="card card-glass p-6">
+          <div class="flex justify-between items-center mb-6" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+            <h3 style="margin: 0; font-family: var(--font-display);">Event Analytics & Reports</h3>
+            <button class="btn btn-outline btn-sm">Export PDF</button>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 8px 0; color: var(--text-muted); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.5px;">Avg. Session Rating</h5>
+              <div style="font-size: var(--fs-2xl); font-weight: var(--fw-bold); color: #00e6e6;">4.8 / 5.0</div>
+              <p style="margin: 4px 0 0 0; font-size: 11px; color: var(--success-400);">▲ +0.3 from last event</p>
+            </div>
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 8px 0; color: var(--text-muted); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.5px;">Check-in Rate</h5>
+              <div style="font-size: var(--fs-2xl); font-weight: var(--fw-bold); color: #00ff7a;">92.4%</div>
+              <p style="margin: 4px 0 0 0; font-size: 11px; color: var(--success-400);">▲ 2,270 attendees verified</p>
+            </div>
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 8px 0; color: var(--text-muted); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.5px;">Audience Engagement</h5>
+              <div style="font-size: var(--fs-2xl); font-weight: var(--fw-bold); color: #ff00a0;">78%</div>
+              <p style="margin: 4px 0 0 0; font-size: 11px; color: var(--success-400);">▲ Live polls & Q&A active</p>
+            </div>
+          </div>
+          <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Event Registration Goals</h4>
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: var(--fs-sm); margin-bottom: 6px;">
+                <span>Tech Innovation Summit 2026</span>
+                <span style="font-weight: 600;">75% (1,500 / 2,000)</span>
+              </div>
+              <div class="progress" style="height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; overflow: hidden; width: 100%;">
+                <div class="progress-bar" style="width: 75%; height: 100%; background: var(--gradient-primary);"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: var(--fs-sm); margin-bottom: 6px;">
+                <span>Business Expo 2026</span>
+                <span style="font-weight: 600;">40% (400 / 1,000)</span>
+              </div>
+              <div class="progress" style="height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; overflow: hidden; width: 100%;">
+                <div class="progress-bar" style="width: 40%; height: 100%; background: var(--gradient-primary);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (view === 'Revenue') {
+      html = `
+        <div class="card card-glass p-6">
+          <div class="flex justify-between items-center mb-6" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+            <h3 style="margin: 0; font-family: var(--font-display);">Revenue Dashboard</h3>
+            <span style="font-size: var(--fs-sm); color: var(--text-muted);">Currency: USD ($)</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 4px 0; color: var(--text-muted); font-size: var(--fs-xs);">Ticket Sales</h5>
+              <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #fff;">$245,800</div>
+            </div>
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 4px 0; color: var(--text-muted); font-size: var(--fs-xs);">Sponsorship Deals</h5>
+              <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #fff;">$180,000</div>
+            </div>
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h5 style="margin: 0 0 4px 0; color: var(--text-muted); font-size: var(--fs-xs);">Booth Rentals</h5>
+              <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #fff;">$95,500</div>
+            </div>
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary); background: linear-gradient(135deg, rgba(0, 102, 255, 0.15), rgba(0, 230, 230, 0.05));">
+              <h5 style="margin: 0 0 4px 0; color: var(--primary-400); font-size: var(--fs-xs); font-weight: var(--fw-bold);">Net Total Revenue</h5>
+              <div style="font-size: var(--fs-2xl); font-weight: var(--fw-bold); color: #00e6e6;">$521,300</div>
+            </div>
+          </div>
+          <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Recent Inbound Payments</h4>
+          <div style="overflow-x: auto; width: 100%;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 500px;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-primary); color: var(--text-muted); font-size: var(--fs-sm);">
+                  <th style="padding: var(--space-3) var(--space-4);">Tx ID</th>
+                  <th style="padding: var(--space-3) var(--space-4);">From</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Item</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Date</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Amount</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-secondary);">
+                  <td style="padding: var(--space-4); color: var(--text-secondary); font-family: monospace;">#TX-9023</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">Google DeepMind</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Platinum Sponsorship</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Jul 05, 2026</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-bold); color: #00ff7a;">+$50,000</td>
+                  <td style="padding: var(--space-4);"><span class="badge badge-success" style="background: rgba(0, 255, 122, 0.15); color: var(--success-400); border: 1px solid rgba(0, 255, 122, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Completed</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-secondary);">
+                  <td style="padding: var(--space-4); color: var(--text-secondary); font-family: monospace;">#TX-9022</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">Alice Vance</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Tech Summit Ticket VIP</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Jul 05, 2026</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-bold); color: #00ff7a;">+$299</td>
+                  <td style="padding: var(--space-4);"><span class="badge badge-success" style="background: rgba(0, 255, 122, 0.15); color: var(--success-400); border: 1px solid rgba(0, 255, 122, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Completed</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-secondary);">
+                  <td style="padding: var(--space-4); color: var(--text-secondary); font-family: monospace;">#TX-9021</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">Starlight Labs</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Exhibit Booth #A-14</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Jul 04, 2026</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-bold); color: #00ff7a;">+$1,500</td>
+                  <td style="padding: var(--space-4);"><span class="badge badge-success" style="background: rgba(0, 255, 122, 0.15); color: var(--success-400); border: 1px solid rgba(0, 255, 122, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    } else if (view === 'Certificates' || view === 'Certifications') {
+      html = `
+        <div class="card card-glass p-6">
+          <div class="flex justify-between items-center mb-6" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+            <h3 style="margin: 0; font-family: var(--font-display);">My Certificates</h3>
+            <button class="btn btn-outline btn-sm">Verify Credentials</button>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+            <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl); position: relative; overflow: hidden;">
+              <div style="position: absolute; right: -15px; top: -15px; width: 60px; height: 60px; background: rgba(0, 255, 122, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--success-500)" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h4 style="margin: 0 0 var(--space-2) 0; font-weight: var(--fw-bold); color: var(--text-primary);">Web3 Innovation Summit 2025</h4>
+              <p style="margin: 0 0 var(--space-4) 0; font-size: var(--fs-xs); color: var(--text-muted);">Awarded December 2025</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-primary); padding-top: var(--space-3);">
+                <span style="font-size: 11px; color: var(--text-secondary);">Credential ID: #C-W3-9824</span>
+                <button class="btn btn-primary btn-sm" style="padding: var(--space-1) var(--space-3); font-size: var(--fs-xs);">Download PDF</button>
+              </div>
+            </div>
+            <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl); position: relative; overflow: hidden;">
+              <div style="position: absolute; right: -15px; top: -15px; width: 60px; height: 60px; background: rgba(0, 255, 122, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--success-500)" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h4 style="margin: 0 0 var(--space-2) 0; font-weight: var(--fw-bold); color: var(--text-primary);">Global AI Summit 2025</h4>
+              <p style="margin: 0 0 var(--space-4) 0; font-size: var(--fs-xs); color: var(--text-muted);">Awarded October 2025</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-primary); padding-top: var(--space-3);">
+                <span style="font-size: 11px; color: var(--text-secondary);">Credential ID: #C-AI-8241</span>
+                <button class="btn btn-primary btn-sm" style="padding: var(--space-1) var(--space-3); font-size: var(--fs-xs);">Download PDF</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements Timeline -->
+          <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Achievements & Learning Milestones</h4>
+          <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <div style="display: flex; gap: var(--space-4); background: rgba(255,255,255,0.02); padding: 12px; border-radius: var(--radius-lg); border: 1px solid var(--border-primary);">
+              <div style="width: 10px; height: 10px; border-radius: 50%; background: #00ff7a; margin-top: 4px; box-shadow: 0 0 8px #00ff7a;"></div>
+              <div>
+                <p style="margin: 0; font-weight: 600; font-size: var(--fs-sm);">Attendee checked-in for 10+ sessions</p>
+                <p style="margin: 2px 0 0 0; font-size: var(--fs-xs); color: var(--text-muted);">Earned during Web3 Innovation Summit</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: var(--space-4); background: rgba(255,255,255,0.02); padding: 12px; border-radius: var(--radius-lg); border: 1px solid var(--border-primary);">
+              <div style="width: 10px; height: 10px; border-radius: 50%; background: #00ff7a; margin-top: 4px; box-shadow: 0 0 8px #00ff7a;"></div>
+              <div>
+                <p style="margin: 0; font-weight: 600; font-size: var(--fs-sm);">Perfect session attendance badge</p>
+                <p style="margin: 2px 0 0 0; font-size: var(--fs-xs); color: var(--text-muted);">Earned during Global AI Summit</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (view === 'Payments' || view === 'Invoices') {
+      html = `
+        <div class="card card-glass p-6">
+          <div class="flex justify-between items-center mb-6" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+            <h3 style="margin: 0; font-family: var(--font-display);">Invoices & Payments</h3>
+            <button class="btn btn-primary btn-sm">Download All</button>
+          </div>
+          
+          <!-- Summary Spend -->
+          <div style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.15), rgba(0, 230, 230, 0.05)); padding: var(--space-4); border-radius: var(--radius-xl); border: 1px solid var(--border-primary); margin-bottom: var(--space-6);">
+            <h5 style="margin: 0 0 4px 0; color: var(--primary-400); font-weight: bold; font-size: var(--fs-xs);">Total Paid Transactions</h5>
+            <div style="font-size: var(--fs-xl); font-weight: var(--fw-bold); color: #fff;">$448.00 USD</div>
+            <p style="margin: 4px 0 0 0; font-size: 11px; color: var(--text-muted);">Verified through Stackly Billing System</p>
+          </div>
+
+          <div style="overflow-x: auto; width: 100%;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 600px;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-primary); color: var(--text-muted); font-size: var(--fs-sm);">
+                  <th style="padding: var(--space-3) var(--space-4);">Invoice ID</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Event / Vendor</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Billing Date</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Amount</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Status</th>
+                  <th style="padding: var(--space-3) var(--space-4); text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-secondary);">
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">#INV-2026-084</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Tech Innovation Summit 2026</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Jul 02, 2026</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">$299.00</td>
+                  <td style="padding: var(--space-4);"><span class="badge badge-success" style="background: rgba(0, 255, 122, 0.15); color: var(--success-400); border: 1px solid rgba(0, 255, 122, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Paid</span></td>
+                  <td style="padding: var(--space-4); text-align: right;"><button class="btn btn-ghost btn-sm" style="color: var(--primary-400);">Receipt</button></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-secondary);">
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">#INV-2026-042</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Business Expo 2026</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Jun 15, 2026</td>
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">$149.00</td>
+                  <td style="padding: var(--space-4);"><span class="badge badge-success" style="background: rgba(0, 255, 122, 0.15); color: var(--success-400); border: 1px solid rgba(0, 255, 122, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Paid</span></td>
+                  <td style="padding: var(--space-4); text-align: right;"><button class="btn btn-ghost btn-sm" style="color: var(--primary-400);">Receipt</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    } else if (view === 'Venues') {
+      html = `
+        <div class="card card-glass p-6">
+          <div class="flex justify-between items-center mb-6" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+            <h3 style="margin: 0; font-family: var(--font-display);">Venue Management</h3>
+            <button class="btn btn-primary btn-sm">+ Add Venue</button>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-6);">
+            <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl);">
+              <h4 style="margin: 0 0 var(--space-2) 0; font-weight: var(--fw-bold); color: #fff;">Moscone Center</h4>
+              <p style="margin: 0 0 var(--space-3) 0; font-size: var(--fs-sm); color: var(--text-secondary);">747 Howard St, San Francisco, CA 94103</p>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted); border-top: 1px solid var(--border-primary); padding-top: var(--space-3); display: flex; justify-content: space-between;">
+                <span>Capacity: 50,000</span>
+                <span style="color: var(--success-400);">Active Contracts</span>
+              </div>
+            </div>
+            <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl);">
+              <h4 style="margin: 0 0 var(--space-2) 0; font-weight: var(--fw-bold); color: #fff;">Javits Center</h4>
+              <p style="margin: 0 0 var(--space-3) 0; font-size: var(--fs-sm); color: var(--text-secondary);">429 11th Ave, New York, NY 10001</p>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted); border-top: 1px solid var(--border-primary); padding-top: var(--space-3); display: flex; justify-content: space-between;">
+                <span>Capacity: 40,000</span>
+                <span style="color: var(--success-400);">Active Contracts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room capacities table -->
+          <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Rooms & Layouts Config</h4>
+          <div style="overflow-x: auto; width: 100%;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 500px;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-primary); color: var(--text-muted); font-size: var(--fs-sm);">
+                  <th style="padding: var(--space-3) var(--space-4);">Room / Hall Name</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Venue</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Seating Capacity</th>
+                  <th style="padding: var(--space-3) var(--space-4);">AV Setup</th>
+                  <th style="padding: var(--space-3) var(--space-4);">Stage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-secondary);">
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">Main Hall A</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Moscone Center</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">10,000 seats</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Dual Projectors & Line Array</td>
+                  <td style="padding: var(--space-4); color: var(--success-400);">Yes</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-secondary);">
+                  <td style="padding: var(--space-4); font-weight: var(--fw-semibold); color: #fff;">Grand Room B</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Javits Center</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">5,000 seats</td>
+                  <td style="padding: var(--space-4); color: var(--text-secondary);">Ultra-Wide LED Wall & Surround Sound</td>
+                  <td style="padding: var(--space-4); color: var(--success-400);">Yes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    } else if (view === 'Bookmarked') {
+      html = `
+        <div class="card card-glass p-6">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); flex-wrap: wrap; gap: 10px;">
+            <h3 style="margin: 0; font-family: var(--font-display);">Your Saved & Bookmarked Items</h3>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-primary btn-sm" style="background: var(--gradient-primary); padding: 4px 10px; font-size: 11px;">All (5)</button>
+              <button class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 11px; border-color: rgba(255,255,255,0.15);">Sessions (2)</button>
+              <button class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 11px; border-color: rgba(255,255,255,0.15);">Speakers (2)</button>
+              <button class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 11px; border-color: rgba(255,255,255,0.15);">Exhibitors (1)</button>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
+            <!-- Bookmarked Session 1 -->
+            <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl); position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span class="badge badge-accent mb-3" style="display: inline-block; background: rgba(255, 0, 160, 0.15); color: var(--accent-400); border: 1px solid rgba(255, 0, 160, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Session</span>
+                <h4 style="margin: 0 0 var(--space-2) 0; font-weight: var(--fw-bold); color: #fff;">Scaling AI Agent Architectures</h4>
+                <p style="margin: 0 0 var(--space-3) 0; font-size: var(--fs-sm); color: var(--text-secondary);">Speaker: Marcus Johnson | Date: Aug 16, 2:00 PM</p>
+              </div>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted); border-top: 1px solid var(--border-primary); padding-top: var(--space-3); display: flex; justify-content: space-between; align-items: center;">
+                <span>Room A | Moscone</span>
+                <button class="btn btn-primary btn-sm" style="padding: 2px 8px; font-size: var(--fs-xs);">Attend</button>
+              </div>
+            </div>
+
+            <!-- Bookmarked Session 2 -->
+            <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl); position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span class="badge badge-accent mb-3" style="display: inline-block; background: rgba(255, 0, 160, 0.15); color: var(--accent-400); border: 1px solid rgba(255, 0, 160, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Session</span>
+                <h4 style="margin: 0 0 var(--space-2) 0; font-weight: var(--fw-bold); color: #fff;">Workshop: Hands-on Web3 Scale & UX</h4>
+                <p style="margin: 0 0 var(--space-3) 0; font-size: var(--fs-sm); color: var(--text-secondary);">Speaker: Sophia Martinez | Date: Aug 17, 10:30 AM</p>
+              </div>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted); border-top: 1px solid var(--border-primary); padding-top: var(--space-3); display: flex; justify-content: space-between; align-items: center;">
+                <span>Room B | Javits</span>
+                <button class="btn btn-primary btn-sm" style="padding: 2px 8px; font-size: var(--fs-xs);">Attend</button>
+              </div>
+            </div>
+
+            <!-- Bookmarked Speaker 1 -->
+            <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl); position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span class="badge badge-primary mb-3" style="display: inline-block; background: rgba(0, 102, 255, 0.15); color: var(--primary-400); border: 1px solid rgba(0, 102, 255, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Speaker</span>
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <img src="${basePath}assets/pexels_photo_774909.webp" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" alt="Dr. Sarah" />
+                  <div>
+                    <h4 style="margin: 0; font-weight: var(--fw-bold); color: #fff;">Dr. Sarah Chen</h4>
+                    <p style="margin: 0; font-size: 11px; color: var(--text-muted);">Google DeepMind</p>
+                  </div>
+                </div>
+              </div>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted); border-top: 1px solid var(--border-primary); padding-top: var(--space-3); display: flex; justify-content: space-between; align-items: center;">
+                <span>1 Bookmarked Talk</span>
+                <button class="btn btn-outline btn-sm" style="padding: 2px 8px; font-size: var(--fs-xs); border-color: rgba(255,255,255,0.15);">Profile</button>
+              </div>
+            </div>
+
+            <!-- Bookmarked Speaker 2 -->
+            <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl); position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span class="badge badge-primary mb-3" style="display: inline-block; background: rgba(0, 102, 255, 0.15); color: var(--primary-400); border: 1px solid rgba(0, 102, 255, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Speaker</span>
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <img src="${basePath}assets/pexels_photo_2379004.webp" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" alt="Marcus" />
+                  <div>
+                    <h4 style="margin: 0; font-weight: var(--fw-bold); color: #fff;">Marcus Johnson</h4>
+                    <p style="margin: 0; font-size: 11px; color: var(--text-muted);">CEO, TechVentures</p>
+                  </div>
+                </div>
+              </div>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted); border-top: 1px solid var(--border-primary); padding-top: var(--space-3); display: flex; justify-content: space-between; align-items: center;">
+                <span>2 Bookmarked Talks</span>
+                <button class="btn btn-outline btn-sm" style="padding: 2px 8px; font-size: var(--fs-xs); border-color: rgba(255,255,255,0.15);">Profile</button>
+              </div>
+            </div>
+
+            <!-- Bookmarked Exhibitor -->
+            <div class="card p-5" style="border: 1px solid var(--border-primary); background: var(--bg-secondary); border-radius: var(--radius-xl); position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span class="badge badge-success mb-3" style="display: inline-block; background: rgba(0, 255, 122, 0.15); color: var(--success-400); border: 1px solid rgba(0, 255, 122, 0.3); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--fs-xs);">Exhibitor</span>
+                <h4 style="margin: 0 0 var(--space-2) 0; font-weight: var(--fw-bold); color: #fff;">OpenAI Inc.</h4>
+                <p style="margin: 0 0 var(--space-3) 0; font-size: var(--fs-sm); color: var(--text-secondary);">Demoing multimodal search and agent systems.</p>
+              </div>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted); border-top: 1px solid var(--border-primary); padding-top: var(--space-3); display: flex; justify-content: space-between; align-items: center;">
+                <span>Booth #A-102 (Hall A)</span>
+                <button class="btn btn-primary btn-sm" style="padding: 2px 8px; font-size: var(--fs-xs);">Visit Booth</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Part: Agenda timeline preview and Saved brochures downloads -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); flex-wrap: wrap;">
+            <!-- Saved Schedule Agenda -->
+            <div class="card p-5" style="background: rgba(0,0,0,0.15); border: 1px solid var(--border-primary); border-radius: var(--radius-xl);">
+              <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Your Saved Agenda Schedule</h4>
+              <div style="display: flex; flex-direction: column; gap: var(--space-4); border-left: 2px solid rgba(255,255,255,0.08); padding-left: var(--space-4); margin-left: 8px;">
+                <div style="position: relative;">
+                  <div style="position: absolute; left: -21px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary-500); box-shadow: 0 0 8px var(--primary-500);"></div>
+                  <span style="font-size: 10px; color: var(--text-muted); font-weight: bold; text-transform: uppercase;">Day 1 - Aug 16, 2:00 PM</span>
+                  <p style="margin: 2px 0 0 0; font-size: var(--fs-sm); font-weight: 600; color: #fff;">Scaling AI Agent Architectures</p>
+                  <p style="margin: 0; font-size: 11px; color: var(--text-secondary);">Room A (Moscone)</p>
+                </div>
+                <div style="position: relative;">
+                  <div style="position: absolute; left: -21px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-500); box-shadow: 0 0 8px var(--accent-500);"></div>
+                  <span style="font-size: 10px; color: var(--text-muted); font-weight: bold; text-transform: uppercase;">Day 2 - Aug 17, 10:30 AM</span>
+                  <p style="margin: 2px 0 0 0; font-size: var(--fs-sm); font-weight: 600; color: #fff;">Workshop: Hands-on Web3 Scale & UX</p>
+                  <p style="margin: 0; font-size: 11px; color: var(--text-secondary);">Room B (Javits)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Saved Brochures & Media Downloads -->
+            <div class="card p-5" style="background: rgba(0,0,0,0.15); border: 1px solid var(--border-primary); border-radius: var(--radius-xl);">
+              <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Saved Resources & Slides</h4>
+              <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 8px 12px; border-radius: var(--radius-md); border: 1px solid var(--border-secondary);">
+                  <div>
+                    <span style="font-size: var(--fs-sm); font-weight: 600; color: #fff; display: block;">OpenAI Multimodal SDK.pdf</span>
+                    <span style="font-size: 10px; color: var(--text-muted);">14.2 MB | PDF Brochure</span>
+                  </div>
+                  <button class="btn btn-ghost btn-sm" style="color: var(--primary-400); padding: 4px 8px; font-size: 11px;">Download</button>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 8px 12px; border-radius: var(--radius-md); border: 1px solid var(--border-secondary);">
+                  <div>
+                    <span style="font-size: var(--fs-sm); font-weight: 600; color: #fff; display: block;">Tech Summit Keynote Slides.pdf</span>
+                    <span style="font-size: 10px; color: var(--text-muted);">8.5 MB | Presentation Slides</span>
+                  </div>
+                  <button class="btn btn-ghost btn-sm" style="color: var(--primary-400); padding: 4px 8px; font-size: 11px;">Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (view === 'Schedule') {
+      html = `
+        <div class="card card-glass p-6">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); flex-wrap: wrap; gap: 10px;">
+            <h3 style="margin: 0; font-family: var(--font-display);">Event Schedule Calendar</h3>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary btn-sm" style="background: var(--gradient-primary);">Day 1</button>
+              <button class="btn btn-outline btn-sm">Day 2</button>
+              <button class="btn btn-outline btn-sm">Day 3</button>
+            </div>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <!-- Session 1 -->
+            <div class="card p-4" style="background: var(--bg-secondary); border-left: 4px solid var(--primary-500); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-3);">
+              <div>
+                <span class="badge badge-primary" style="font-size: var(--fs-xs); margin-bottom: var(--space-2); display: inline-block;">09:00 AM - 10:30 AM</span>
+                <h4 style="margin: 0 0 var(--space-1) 0; color: #fff;">Keynote: Scaling AI Agent Architectures</h4>
+                <p style="margin: 0; font-size: var(--fs-sm); color: var(--text-secondary);">Speaker: Dr. Sarah Chen | Venue: Main Hall A</p>
+              </div>
+              <button class="btn btn-outline btn-sm" style="padding: 4px 12px; font-size: var(--fs-xs);">Remove Session</button>
+            </div>
+
+            <!-- Session 2 -->
+            <div class="card p-4" style="background: var(--bg-secondary); border-left: 4px solid var(--accent-500); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-3);">
+              <div>
+                <span class="badge badge-accent" style="font-size: var(--fs-xs); margin-bottom: var(--space-2); display: inline-block; background: rgba(255, 0, 160, 0.15); color: var(--accent-400); border: 1px solid rgba(255, 0, 160, 0.3);">11:00 AM - 12:30 PM</span>
+                <h4 style="margin: 0 0 var(--space-1) 0; color: #fff;">Workshop: Hands-on Web3 Scale & UX</h4>
+                <p style="margin: 0; font-size: var(--fs-sm); color: var(--text-secondary);">Speaker: Sophia Martinez | Venue: Hall B</p>
+              </div>
+              <button class="btn btn-primary btn-sm" style="padding: 4px 12px; font-size: var(--fs-xs);">Add to Calendar</button>
+            </div>
+
+            <!-- Session 3 -->
+            <div class="card p-4" style="background: var(--bg-secondary); border-left: 4px solid var(--success-500); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-3);">
+              <div>
+                <span class="badge badge-success" style="font-size: var(--fs-xs); margin-bottom: var(--space-2); display: inline-block; background: rgba(0, 255, 122, 0.15); color: var(--success-400); border: 1px solid rgba(0, 255, 122, 0.3);">02:00 PM - 03:30 PM</span>
+                <h4 style="margin: 0 0 var(--space-1) 0; color: #fff;">Panel: Quantum Cryptography in Practice</h4>
+                <p style="margin: 0; font-size: var(--fs-sm); color: var(--text-secondary);">Moderator: Prof. Alan Vance | Venue: Hall C</p>
+              </div>
+              <button class="btn btn-outline btn-sm" style="padding: 4px 12px; font-size: var(--fs-xs);">Remove Session</button>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (view === 'Feedback') {
+      html = `
+        <div class="card card-glass p-6">
+          <h3 style="margin: 0 0 var(--space-6) 0; font-family: var(--font-display);">Event Feedback & Surveys</h3>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-bottom: var(--space-6); flex-wrap: wrap;">
+            <!-- Left Side: Live Feed -->
+            <div>
+              <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Attendee Feed</h4>
+              <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                <div class="card p-3" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                    <span style="font-weight: 600; font-size: var(--fs-sm); color: #fff;">Michael Chang</span>
+                    <span style="color: #ffc107;">★★★★★</span>
+                  </div>
+                  <p style="margin: 0; font-size: var(--fs-xs); color: var(--text-secondary);">"The AI Agent keynote was mindblowing! Incredibly detailed architecture slides."</p>
+                </div>
+                <div class="card p-3" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                    <span style="font-weight: 600; font-size: var(--fs-sm); color: #fff;">Amara Okafor</span>
+                    <span style="color: #ffc107;">★★★★☆</span>
+                  </div>
+                  <p style="margin: 0; font-size: var(--fs-xs); color: var(--text-secondary);">"Great networking events, food was fantastic. Wifi in Hall B was a bit spotty."</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Submit Survey -->
+            <div class="card p-4" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+              <h4 style="margin: 0 0 var(--space-4) 0; font-family: var(--font-display);">Submit Event Feedback</h4>
+              <form onsubmit="event.preventDefault(); alert('Thank you for your feedback!'); this.reset();">
+                <div style="margin-bottom: var(--space-3);">
+                  <label style="display: block; margin-bottom: 4px; font-size: var(--fs-sm); font-weight: 500;">Select Session</label>
+                  <select style="width: 100%; padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-primary); color: #fff; border-radius: var(--radius-md);">
+                    <option>Keynote: Scaling AI Agent Architectures</option>
+                    <option>Workshop: Hands-on Web3 Scale & UX</option>
+                    <option>Panel: Quantum Cryptography in Practice</option>
+                  </select>
+                </div>
+                <div style="margin-bottom: var(--space-3);">
+                  <label style="display: block; margin-bottom: 4px; font-size: var(--fs-sm); font-weight: 500;">Rating</label>
+                  <select style="width: 100%; padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-primary); color: #fff; border-radius: var(--radius-md);">
+                    <option>5 Stars - Excellent</option>
+                    <option>4 Stars - Good</option>
+                    <option>3 Stars - Average</option>
+                    <option>2 Stars - Poor</option>
+                    <option>1 Star - Very Bad</option>
+                  </select>
+                </div>
+                <div style="margin-bottom: var(--space-4);">
+                  <label style="display: block; margin-bottom: 4px; font-size: var(--fs-sm); font-weight: 500;">Your Comments</label>
+                  <textarea rows="3" style="width: 100%; padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border-primary); color: #fff; border-radius: var(--radius-md); font-family: inherit;" placeholder="Tell us what you liked or how we can improve..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm" style="width: 100%;">Submit Review</button>
+              </form>
             </div>
           </div>
         </div>
