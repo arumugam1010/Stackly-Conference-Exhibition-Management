@@ -563,7 +563,7 @@
 
 .footer-link::before {
   content: '\203A'; /* Single right-pointing angle quotation mark › */
-  color: var(--secondary-500);
+  color: var(--primary-500);
   font-size: 1.25rem;
   font-weight: var(--fw-bold);
   line-height: 1;
@@ -576,7 +576,7 @@
 }
 
 .footer-link:hover::before {
-  color: var(--secondary-400);
+  color: var(--primary-400);
 }
 
 .footer-contact {
