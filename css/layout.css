@@ -530,7 +530,20 @@
   font-size: var(--fs-lg);
   font-weight: var(--fw-semibold);
   color: var(--text-primary);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
+  position: relative;
+  padding-bottom: var(--space-2);
+}
+
+.footer-column-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--secondary-500);
+  border-radius: var(--radius-full);
 }
 
 .footer-links {
@@ -548,20 +561,22 @@
   gap: var(--space-2);
 }
 
+.footer-link::before {
+  content: '\203A'; /* Single right-pointing angle quotation mark › */
+  color: var(--secondary-500);
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
 .footer-link:hover {
-  color: var(--primary-400);
+  color: var(--text-primary);
   transform: translateX(4px);
 }
 
-.footer-link svg {
-  width: 14px;
-  height: 14px;
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
-.footer-link:hover svg {
-  opacity: 1;
+.footer-link:hover::before {
+  color: var(--secondary-400);
 }
 
 .footer-contact {
@@ -904,19 +919,19 @@
   right: var(--space-6);
   width: 50px;
   height: 50px;
-  background: var(--gradient-primary);
+  background: transparent;
+  border: 2px solid var(--secondary-500);
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--secondary-500);
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
   transition: all var(--transition-base);
   z-index: var(--z-sticky);
-  box-shadow: var(--shadow-glow);
 }
 
 .scroll-top.visible {
@@ -926,8 +941,11 @@
 }
 
 .scroll-top:hover {
+  background: rgba(0, 230, 230, 0.1);
+  color: var(--secondary-400);
+  border-color: var(--secondary-400);
   transform: translateY(-4px);
-  box-shadow: 0 0 30px var(--primary-500);
+  box-shadow: 0 0 15px rgba(0, 230, 230, 0.3);
 }
 
 /* ========== Page Header ========== */

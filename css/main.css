@@ -550,8 +550,8 @@ body {
   }
 
   .container {
-    padding-left: 8px !important;
-    padding-right: 8px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
   .grid,
@@ -615,7 +615,7 @@ body {
   }
 
   .header-container {
-    padding: 0 8px !important;
+    padding: 0 16px !important;
   }
 
   .header-logo-text {
@@ -830,10 +830,10 @@ body {
 
   /* Scroll to top button sizing */
   .scroll-top {
-    width: 32px !important;
-    height: 32px !important;
-    bottom: var(--space-2) !important;
-    right: var(--space-2) !important;
+    width: 44px !important;
+    height: 44px !important;
+    bottom: var(--space-8) !important;
+    right: var(--space-8) !important;
   }
 
   /* Contact page card details fix */
