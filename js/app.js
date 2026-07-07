@@ -190,6 +190,41 @@ const App = {
     if (role) {
       localStorage.setItem('userLoggedIn', 'true');
       localStorage.setItem('userRole', role);
+
+      // Initialize default display name and email if not already present
+      if (!localStorage.getItem('userDisplayName')) {
+        let defaultName = 'Jane Cooper';
+        let defaultEmail = 'jane.cooper@example.com';
+        if (role === 'organizer') {
+          defaultName = 'Sarah Chen';
+          defaultEmail = 'sarah.chen@example.com';
+        } else if (role === 'admin') {
+          defaultName = 'Admin User';
+          defaultEmail = 'admin@thestackly.com';
+        }
+        localStorage.setItem('userDisplayName', defaultName);
+        localStorage.setItem('userEmail', defaultEmail);
+      }
+    }
+
+    // Dynamic profile updates based on logged-in user credentials
+    const userDisplayName = localStorage.getItem('userDisplayName');
+    if (userDisplayName) {
+      // 1. Update sidebar username
+      const sidebarName = document.querySelector('.sidebar-user-name');
+      if (sidebarName) {
+        sidebarName.textContent = userDisplayName;
+      }
+
+      // 2. Update welcome greeting in dashboard header (e.g. "Welcome, Jane!" -> "Welcome, Firstname!")
+      const welcomeHeader = document.querySelector('.dashboard-header-title');
+      if (welcomeHeader) {
+        const welcomeText = welcomeHeader.textContent.trim();
+        if (welcomeText.startsWith('Welcome,') || welcomeText.startsWith('Welcome back,')) {
+          const firstName = userDisplayName.split(' ')[0];
+          welcomeHeader.textContent = `Welcome, ${firstName}!`;
+        }
+      }
     }
 
     // Dynamically inject the logo-stackly.webp image inside sidebar and header
@@ -685,6 +720,8 @@ const App = {
         </div>
       `;
     } else if (view === 'Settings') {
+      const currentName = localStorage.getItem('userDisplayName') || 'John Doe';
+      const currentEmail = localStorage.getItem('userEmail') || 'john@example.com';
       html = `
         <div class="card card-glass p-6" style="max-width: 800px; margin: 0 auto;">
           <h3 class="mb-4" style="margin-bottom: var(--space-4); font-family: var(--font-display);">Settings & Configurations</h3>
@@ -699,14 +736,14 @@ const App = {
               </nav>
             </div>
             <div>
-              <form style="display: flex; flex-direction: column; gap: var(--space-4);" onsubmit="event.preventDefault(); alert('Settings Saved!');">
+              <form id="settingsProfileForm" style="display: flex; flex-direction: column; gap: var(--space-4);">
                 <div class="form-group" style="margin-bottom: var(--space-3);">
                   <label class="form-label" style="display: block; margin-bottom: 4px; font-weight: 500; font-size: var(--fs-sm);">Display Name</label>
-                  <input type="text" class="form-input" style="width: 100%;" value="Sarah Jenkins" />
+                  <input type="text" id="settingsDisplayName" class="form-input" style="width: 100%;" value="${currentName}" />
                 </div>
                 <div class="form-group" style="margin-bottom: var(--space-3);">
                   <label class="form-label" style="display: block; margin-bottom: 4px; font-weight: 500; font-size: var(--fs-sm);">Notification Email</label>
-                  <input type="email" class="form-input" style="width: 100%;" value="sarah.j@google.com" />
+                  <input type="email" id="settingsEmail" class="form-input" style="width: 100%;" value="${currentEmail}" />
                 </div>
                 <div class="form-group" style="margin-bottom: var(--space-3);">
                   <label class="form-label" style="display: block; margin-bottom: 4px; font-weight: 500; font-size: var(--fs-sm);">Time Zone</label>
@@ -1378,6 +1415,48 @@ const App = {
     }
 
     container.innerHTML = html;
+
+    // If the Settings view was rendered, bind the submit event of settings profile form
+    if (view === 'Settings') {
+      const form = container.querySelector('#settingsProfileForm');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const newName = container.querySelector('#settingsDisplayName').value.trim();
+          const newEmail = container.querySelector('#settingsEmail').value.trim();
+          
+          if (!newName || !newEmail) {
+            alert('Please enter a valid display name and email address.');
+            return;
+          }
+          
+          localStorage.setItem('userDisplayName', newName);
+          localStorage.setItem('userEmail', newEmail);
+          
+          // Also save in mock DB so it persists on next login
+          localStorage.setItem('reg_' + newEmail.toLowerCase() + '_email', newEmail);
+          localStorage.setItem('reg_' + newEmail.toLowerCase() + '_name', newName);
+          
+          // Instantly update sidebar username
+          const sidebarName = document.querySelector('.sidebar-user-name');
+          if (sidebarName) {
+            sidebarName.textContent = newName;
+          }
+          
+          // Instantly update welcome header greeting
+          const welcomeHeader = document.querySelector('.dashboard-header-title');
+          if (welcomeHeader) {
+            const welcomeText = welcomeHeader.textContent.trim();
+            if (welcomeText.startsWith('Welcome,') || welcomeText.startsWith('Welcome back,')) {
+              const firstName = newName.split(' ')[0];
+              welcomeHeader.textContent = `Welcome, ${firstName}!`;
+            }
+          }
+          
+          alert('Profile Settings Saved Successfully!');
+        });
+      }
+    }
   },
 
   // Loading Screen

@@ -607,6 +607,18 @@
         return;
       }
 
+      // Save user session in localStorage
+      localStorage.setItem('userRole', selectedRole);
+      localStorage.setItem('userLoggedIn', 'true');
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userFirstName', firstName);
+      localStorage.setItem('userLastName', lastName);
+      localStorage.setItem('userDisplayName', firstName + ' ' + lastName);
+
+      // Save registration in a mock database so it persists across login/logout
+      localStorage.setItem('reg_' + email.toLowerCase() + '_email', email);
+      localStorage.setItem('reg_' + email.toLowerCase() + '_name', firstName + ' ' + lastName);
+
       // Simulate registration - redirect to appropriate dashboard
       window.location.href = selectedRole + '/dashboard.html';
     }

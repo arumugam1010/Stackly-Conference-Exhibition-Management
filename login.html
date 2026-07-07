@@ -299,6 +299,8 @@
     document.addEventListener('DOMContentLoaded', () => {
       localStorage.removeItem('userRole');
       localStorage.removeItem('userLoggedIn');
+      localStorage.removeItem('userEmail');
+      localStorage.removeItem('userDisplayName');
     });
 
     function handleLogin(e) {
@@ -359,6 +361,22 @@
       // Save user session in localStorage
       localStorage.setItem('userRole', role);
       localStorage.setItem('userLoggedIn', 'true');
+      localStorage.setItem('userEmail', email);
+
+      // Dynamically determine displayName: check if there's a stored registration name matching this email,
+      // otherwise parse it from the email local part.
+      const storedRegEmail = localStorage.getItem('reg_' + email.toLowerCase() + '_email');
+      let displayName = '';
+      if (storedRegEmail && localStorage.getItem('reg_' + email.toLowerCase() + '_name')) {
+        displayName = localStorage.getItem('reg_' + email.toLowerCase() + '_name');
+      } else {
+        const localPart = email.split('@')[0];
+        displayName = localPart
+          .split(/[\._-]/)
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+      }
+      localStorage.setItem('userDisplayName', displayName);
 
       // Redirect directly to the dashboard of the selected role
       window.location.href = `${role}/dashboard.html`;
