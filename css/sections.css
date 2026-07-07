@@ -891,6 +891,7 @@
 /* ========== Countdown Timer ========== */
 .countdown {
   display: flex;
+  justify-content: center;
   gap: var(--space-4);
 }
 
