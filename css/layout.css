@@ -323,7 +323,7 @@
   transition: all var(--transition-fast);
 }
 
-@media (min-width: 601px) {
+@media (min-width: 1024px) {
   .header-menu-toggle {
     display: none;
   }

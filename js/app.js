@@ -1793,8 +1793,10 @@ const App = {
 
     // Auto-close mobile menu and sidebar overlays when resizing window to desktop view
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 600) {
+      if (window.innerWidth >= 1024) {
         this.closeMobileMenu();
+      }
+      if (window.innerWidth > 600) {
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
         if (sidebar) {
